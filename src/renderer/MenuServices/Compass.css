@@ -1,0 +1,176 @@
+.context-menu-list.compass-menu {
+    min-width: 25vw;
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+.context-menu-item.compass-menu-parent {
+    background-color: var(--menuLabel);
+    color: var(--menu_BG);
+}
+.context-menu-item.compass-menu-parent .compass .compass-controls div{
+    color: var(--menuLabel);
+    border: 1px solid var(--menuLabel)
+}
+
+
+.context-menu-item.compass-menu-item {
+    background-color: var(--menu_BG);
+    color: var(--menuLabel);
+}
+
+.compass-menu {
+    padding: 0 !important;
+}
+
+.compass {
+    display: flex;
+    padding: 0 !important;
+}
+
+.compass-label {
+    display: flex;
+    padding: 0;
+    width: 100%;
+    align-items: center
+}
+
+.compass-remove {
+    padding: 0 5px;
+    color: var(--menu_BG) !important;
+}
+
+.compass-span {
+    padding: 0 5px;
+}
+
+.compass-controls {
+    display: flex;
+    padding: 2px 10px;
+}
+
+.compass-controls div {
+    padding: 2px 10px;
+    color: var(--menu_BG);
+    border: 1px solid var(--menu_BG);
+    border-radius: 5px;
+    margin: 0px 10px;
+}
+
+.compass:hover+.compass-controls div {
+    color: var(--menuLabel) !important;
+}
+
+.compass:hover>.compass-controls div {
+    color: var(--menuLabel);
+    border: 1px solid var(--menu_BG);
+}
+
+.compass-controls div:hover {
+    color: var(--menuLabel) !important;
+    border: 1px solid var(--menuLabel) !important;
+}
+
+.compass:hover>.compass-label .compass-remove {
+    color: var(--menuLabel) !important;
+}
+
+.compass-remove:hover {
+    background-color: var(--close_icon_bg) !important;
+    color: var(--close_icon_fg) !important;
+}
+
+/* .context-menu-item.labels {
+    margin: 0 5px;
+    padding-right: 10px;
+    background-color: var(--menu_BG);
+    color: var(--menuLabel);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.context-menu-item.labels:hover {
+    background-color: var(--menuLabel_BG_Hover);
+    color: var(--menuLabel);
+    cursor: default;
+
+}
+
+
+.labels div.controls {
+    padding: 0px 20px 0px 0px;
+    align-self: center;
+}
+
+.labels .controls  {
+    padding: 5px 10px;
+    display: flex;
+}
+
+.labels .controls div {
+    padding: 3px 10px;
+    color: var(--menu_BG);
+    border: 1px solid var(--menu_BG);
+    border-radius: 5px;
+    margin: 5px 10px;
+}
+
+.labels .controls ul li i {
+    display: block;
+    padding: 0px 5px;
+    border: 1px solid;
+    color: var(--menu_BG);
+    font-size: 1em;
+}
+
+
+.labels:hover .controls ul li i {
+    color: var(--menuLabel);
+    border: 1px solid var(--menuLabel_BG_Hover);
+}
+
+.labels div.controls ul li i:hover {
+    color: var(--menuLabel);
+    background-color: var(--menu_BG);
+    border: 1px solid var(--menuLabel);
+    border-radius: 5px;
+
+} */
+
+/* end of commons in nvigator */
+
+/* Dir Header */
+
+/* .context-menu-item.dir_header.labels {
+    background-color: var(--menuLabel);
+    color: var(--menu_BG);
+    border-radius: 5px;
+
+}
+
+
+
+.context-menu-item.dir_header.labels:hover div.dir-name {
+    cursor: default;
+}
+
+.context-menu-item.dir_header.labels div.controls ul li i {
+    color: var(--menuLabel);
+    border: 1px solid var(--menuLabel);
+    border-radius: 5px;
+    display: block;
+    font-size: 1em;
+}
+
+.context-menu-item.dir_header.labels:hover div.controls ul li i {
+    background-color: var(--menuLabel);
+    color: var(--menu_BG);
+    border: 1px solid var(--menuLabel);
+}
+
+.context-menu-item.dir_header.labels div.controls ul li i:hover {
+    background-color: var(--menu_BG);
+    color: var(--menuLabel);
+    border: 1px solid var(--menu_BG);
+} */

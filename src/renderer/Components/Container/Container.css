@@ -1,0 +1,28 @@
+#container {
+
+    display: flex;
+    /* flex-flow: row nowrap; */
+    background-color: var(--background);
+
+    height: 100%;
+    /* width: 100vw; */
+    overflow: hidden;
+    z-index: 0;
+
+    /* overflow: scroll; */
+    /* opacity: 0.8; */
+    /* backdrop-filter: blur(8px); */
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+    border: 1px solid #000000;
+    background: #000000;
+    color: #000000;
+}
+
+.ui-state-checked {
+    border: 1px solid #000000;
+    background: #000000;
+}

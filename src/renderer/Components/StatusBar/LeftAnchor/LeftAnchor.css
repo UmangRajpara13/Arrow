@@ -1,0 +1,7 @@
+
+.left_anchor {
+    flex: 1 1 0;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+}

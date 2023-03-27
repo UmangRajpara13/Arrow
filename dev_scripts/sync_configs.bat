@@ -1,0 +1,1 @@
+Xcopy C:\Users\M.A.S Plastics\AppData\Roaming\after\remote C:\Users\M.A.S Plastics\Desktop\awes_web\remote /E

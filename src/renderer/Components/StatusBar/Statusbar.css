@@ -1,0 +1,41 @@
+/* just to hide holder ele of fe menu */
+#hidden_menu {
+    width: 0;
+}
+
+#hidden_menu_list {
+    list-style-type: none;
+    margin: 0%;
+}
+
+#toolbar {
+    background-color: var(--statusBar_BG);
+    display: flex;
+    height: 35px;
+}
+
+.toolbar_slots{
+    display: flex;
+    flex: 1;
+}
+
+.toolbar_item {
+    color: var(--statusBarLabel);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.toolbar_item i {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    font-size: 20px;
+}
+
+.toolbar_item:hover {
+    background-color: var(--statusBarLabel_BG_Hover);
+}
+ 

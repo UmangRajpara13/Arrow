@@ -1,0 +1,16 @@
+.context-menu-list.settings {
+    background-color: var(--menu_BG);
+    color: var(--menuLabel);
+    border: 0;
+}
+
+.context-menu-item.settings:hover {
+    background-color: var(--hover);
+    color: var(--menuLabel);
+}
+
+
+.context-menu-item.settings {
+    background-color: var(--menu_BG);
+    color: var(--menuLabel);
+}

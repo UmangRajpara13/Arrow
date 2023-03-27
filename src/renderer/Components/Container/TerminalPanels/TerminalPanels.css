@@ -1,0 +1,29 @@
+/* .panel {
+    height: -webkit-fill-available;
+    display: flex;
+}
+
+.pane {
+    height: 100%;
+    background-color: var(--background);
+    padding: 5px 5px 5px 5px;
+    flex-shrink: 1;
+    flex-basis: 0;
+    min-width: 100px;
+    overflow: hidden;
+}
+
+.panes-vertical {
+    flex-direction: column;
+    flex:1
+}
+
+.panes-horizontal {
+    flex-direction: column;
+} */
+
+.panes-vertical {
+    display: flex;
+    flex-direction: column;
+    flex:1
+}

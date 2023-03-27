@@ -5,11 +5,11 @@
 
 # Node artifact files
 node_modules/
-dist/
-
+dist/ 
+stable/
 # Compiled Java class files
 *.class
-
+.env
 # Compiled Python bytecode
 *.py[cod]
 

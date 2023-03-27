@@ -1,0 +1,17 @@
+.messages {
+  flex: 3 1 0;
+  user-select: none;
+  color: var(--statusBarLabel);
+  font-style: italic;
+  cursor: default;
+  text-align: center;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  direction: ltr;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  /* width: -webkit-fill-available; */
+}

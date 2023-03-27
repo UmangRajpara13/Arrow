@@ -1,0 +1,51 @@
+.welcome-pane {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+
+
+
+
+.bookmarks {
+  /* margin-right: 5px; */
+  padding: 0 15px;
+}
+
+.bookmarks::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--xtermScrollBar);
+}
+
+.bookmarks::-webkit-scrollbar {
+  width: 5px;
+}
+
+.bookmarks:hover::-webkit-scrollbar-thumb {
+  background-color: var(--xtermScrollBar_Hover);
+}
+
+.bookmarks:hover::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+  background-color: var(--xtermScrollBar_BG_Hover);
+}
+
+
+
+
+.bookmarksLinks,
+.homeLink,
+.desktopLink {
+  border: 1px dotted var(--background);
+  border-radius: 5px;
+}
+
+.bookmarksLinks:hover,
+.homeLink:hover,
+.desktopLink:hover {
+  border: 1px dotted var(--foreground);
+  border-radius: 5px
+}

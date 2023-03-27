@@ -1,0 +1,6 @@
+.username {
+    font-style: italic;
+    color: var(--statusBarLabel);
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}

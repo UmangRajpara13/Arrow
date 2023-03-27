@@ -1,0 +1,13 @@
+.right_anchor {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.rainbow{
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    font-size: 20px;
+}

@@ -1,0 +1,199 @@
+.context-menu-list.terminal-menu {
+    min-width: 25vw;
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+
+.context-menu-item.terminal-menu-item {
+    background-color: var(--menu_BG);
+    color: var(--menuLabel);
+}
+
+.context-menu-item.terminal-menu-item:hover {
+    background-color: var(--menuLabel_BG_Hover);
+    color: var(--menuLabel);
+    cursor: default;
+    border-radius: 5px;
+}
+
+.terminal-menu-item .dir-item {
+    background-color: var(--menu_BG);
+    color: var(--menuLabel);
+    margin: 0 5px;
+    border-radius: 5px;
+    /* display: flex; */
+}
+
+.terminal-menu-item .dir-item:hover+.terminal-menu-item .dir-item i {
+    color: var(--menuLabel) !important
+}
+
+.terminal-menu-item .context-menu-item.dir-item i {
+    color: var(--menu_BG) !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 5px;
+    padding: 1px 4px;
+
+}
+
+.terminal-menu-item .context-menu-item.dir-item i:hover {
+    background-color: var(--close_icon_bg) !important;
+    color: var(--close_icon_fg) !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/* paneContrls */
+.terminal-menu-paneControls {
+    padding: 0 !important;
+}
+
+.paneControls {
+    display: flex;
+    padding: 0;
+    width: 100%;
+    justify-content: space-around;
+    background-color: var(--menu_BG) !important;
+}
+
+.paneControls div {
+    border-radius: 3px;
+
+    display: flex;
+    width: 100%;
+    padding: 3px 0;
+    justify-content: center
+}
+
+.paneControls div:hover {
+    background-color: var(--menuLabel_BG_Hover)
+}
+
+/* Copy Controls */
+.terminal-menu-selectionControls {
+    padding: 0 !important;
+
+}
+
+.selectionControls {
+    display: flex;
+    padding: 0;
+    width: 100%;
+    justify-content: space-around;
+    background-color: var(--menu_BG) !important;
+}
+
+.terminal-menu-selectionControls:hover {
+    background-color: var(--menu_BG) !important;
+    color: var(--menuLabel) !important;
+}
+
+.selectionControls div {
+    border-radius: 3px;
+    display: flex;
+    width: 100%;
+    padding: 3px 0;
+    justify-content: center
+}
+
+.selectionControls div:hover {
+    background-color: var(--menuLabel_BG_Hover)
+}
+
+/* terminal controls */
+
+.terminal-menu-terminalControls {
+    padding: 0 !important;
+}
+
+.terminalControls {
+    display: flex;
+    padding: 0;
+    width: 100%;
+    justify-content: space-around;
+    background-color: var(--menu_BG) !important;
+}
+
+.terminal-menu-terminalControls:hover {
+    background-color: var(--menu_BG) !important;
+    color: var(--menuLabel) !important;
+}
+
+.terminalControls div {
+    border-radius: 3px;
+    display: flex;
+    width: 100%;
+    padding: 3px 0;
+    justify-content: center
+}
+
+.terminalControls div:hover {
+    background-color: var(--menuLabel_BG_Hover)
+}
+
+/* bookmarks */
+
+.terminal-menu-bookmark {
+    padding: 0 !important;
+}
+
+.bookmark {
+    display: flex;
+    padding: 0 !important;
+}
+
+.bookmark-label {
+    display: flex;
+    padding: 0;
+    width: 100%;
+    align-items: center
+}
+
+.bookmark-remove {
+    padding: 0 5px;
+    color: var(--menu_BG) !important;
+}
+
+.bookmark-span {
+    padding: 0 5px;
+}
+
+.bookmark-controls {
+    display: flex;
+    padding: 5px 10px;
+}
+
+.bookmark-controls div {
+    padding: 3px 10px;
+    color: var(--menu_BG);
+    border: 1px solid var(--menu_BG);
+    border-radius: 5px;
+    margin: 5px 10px;
+}
+
+.bookmark:hover+.bookmark-controls div {
+    color: var(--menuLabel) !important;
+}
+
+.bookmark:hover>.bookmark-controls div {
+    color: var(--menuLabel);
+    border: 1px solid var(--menu_BG);
+}
+
+.bookmark-controls div:hover {
+    color: var(--menuLabel) !important;
+    border: 1px solid var(--menuLabel) !important;
+}
+
+.bookmark:hover>.bookmark-label .bookmark-remove {
+    color: var(--menuLabel) !important;
+}
+
+.bookmark-remove:hover {
+    background-color: var(--close_icon_bg) !important;
+    color: var(--close_icon_fg) !important;
+}

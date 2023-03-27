@@ -1,0 +1,22 @@
+.data-title:before {
+    content: attr(data-menutitle);
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    background: var(--menuLabel) !important;
+    color: var(--menu_BG) !important;
+}
+
+.data-title {
+    color: var(--background);
+}
+
+.data-title :first-child:not(i) {
+    margin-top: 22px !important;
+}

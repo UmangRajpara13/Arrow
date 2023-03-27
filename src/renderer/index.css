@@ -1,0 +1,95 @@
+:root {
+
+    --close_icon_bg: #b60000;
+    --close_icon_fg: #ffffff;
+
+    --titleBar_BG:#31363b;
+    --titleBar_FG: #dedede; 
+    --activeTab_BG: #becdd7;
+    --activeTabLabel: #cfcfcf;
+    --inactiveTabLabel: #e7e7e7;
+    --inactiveTabHover_BG: #bfc0c075;
+
+    /* --windowControls_BG: #31363b;    */
+
+    /* not on MAC */   
+    /* --windowControls_FG: #bfbfb6; */
+    /* --windowControls_BG_Hover: #afadad83; */
+    /*  */
+    
+    --statusBar_BG: #546b7a;
+    --statusBarLabel: #cfcfcf;
+    --statusBarLabel_BG_Hover: #8884845b;
+
+    --menu_BG: #323538;
+    --menuSeperator: #4a4c4d;
+    --menuLabel: #cfcfc2;
+    --menuLabel_BG_Hover: #9b9b9b70;
+    --menuScrollBar: #7b7c78;
+    
+    --paneSplit: #000000;
+    --xtermScrollBar: #9e9fa076;
+    --xtermScrollBar_Hover: #6b6a6a;
+    --xtermScrollBar_BG_Hover: #5a5a5a;
+
+    /* terminal */
+    --background: #bac8d2; 
+
+    /* name@host string*/
+    --foreground: #323231;
+
+    --selection: #72bfe5b1; 
+    --cursor: #323231;
+
+    --brightBlack: #161616;
+    /* path +vcs string */
+    --black: #e9e9e9;
+
+    --brightBlue: #1779e9;
+    /* path around*/
+    --blue: #2e73c2;
+
+    --brightCyan: #07b4b4;
+    --cyan: #037e7e;
+
+    --brightGreen: #27bd08;
+    /* vcs around */
+    --green: #1d9705;
+
+    --brightMagenta: #b31db3;
+    --magenta: #b419b4;
+
+    --brightRed: #fa2828;
+    --red: #fa4242;
+
+    --brightWhite: #4e4e4e;
+    --white: #202020;
+
+    --brightYellow: #838115;
+    /* vsc branch */
+    --yellow: #838115;
+}
+
+#root {
+    /* background-color: #00000000; */
+    /* opacity: 0.5; */
+}
+
+body {
+    margin: 0;
+    /* background-color: var(--background); */
+    overflow: hidden;
+    position: relative;
+}
+
+/* *::-webkit-scrollbar {
+    width: 6px;
+
+    background-color: inherit;
+} */
+
+/* *::-webkit-scrollbar-thumb { */
+    /* width: 6px; */
+    /* Let Below CSS prop be */
+    /* background-color: var(--xtermScrollBar); */
+/* } */

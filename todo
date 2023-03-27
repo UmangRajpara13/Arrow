@@ -1,0 +1,44 @@
+
+* selection open a copy and search in browser option
+
+<!-- brainstorm -->
+
+* on scroll should show scroll to bottom icon 
+
+* bookmark label click will switch active Pane and add open in new window option
+
+selection finds other words as well
+
+dir/sub-dir + files, Link matching... with custom commands like open in code or webstrom.
+
+move window under mouse from chrome menu click - benefits on multi monitor
+
+relocate bookmarks.json as well
+
+open menu layout
+
+chrome->where->paste/pasteGO/urlAction or github app?... something like this
+
+./ in autocomplete shoud show contents of $PWD
+
+sideBar?
+
+close window if no activity for a certain period up until one window is alive?
+
+Open directory to open files (runAction) or directory?
+
+Compass : open files in os default manner, run files as per actions?
+
+configurable quickActions: open in code or other apps from sonic?
+
+Browser?
+
+dir regex to open folders or view files on linux and mac?
+
+score based bookmarks
+
+Find Text
+
+selected text shows other matcher as well
+
+add directory on tab title - this helps when many tabs are open....or maybe we can have a tray icon to better navigate tabs and then pane

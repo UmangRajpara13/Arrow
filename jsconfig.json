@@ -1,0 +1,147 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "amd",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "jquery": [
+        "./node_modules/jquery/dist/jquery.min.js"
+      ],
+      "App": [
+        "src/renderer/Components/App.jsx"
+      ],
+      "Profile": [
+        "src/renderer/MenuServices/Profile.js"
+      ],
+      "bootstrap": [
+        "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+      ],
+      "bootstrapCss": [
+        "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+      ],
+      "bootstrapIcons": [
+        "./node_modules/bootstrap-icons/font/bootstrap-icons.css"
+      ],
+      "jquery-ui": [
+        "pluginJS/jquery-ui-dist/jquery-ui.js"
+      ],
+      "jquery-ui.css": [
+        "pluginJS/jquery-ui-dist/jquery-ui.css"
+      ],
+      "a": [
+        "pluginJS/a/a.js"
+      ],
+      "context-menu": [
+        "pluginJS/contextmenu/jquery.contextMenu.js"
+      ],
+      "context": [
+        "pluginJS/contextmenu/context.js"
+      ],
+      "contextMenuCss": [
+        "pluginCss/jquery.contextMenu.css"
+      ],
+      "xtermCss": [
+        "./node_modules/xterm/css/xterm.css"
+      ],
+      "xTerm": [
+        "src/renderer/Components/Container/TerminalPanels/Panel/Pane/xTerm.js"
+      ],
+      "terminalCustomization": [
+        "src/renderer/Components/Container/Terminal/terminalCustomization.js"
+      ],
+      "splitRight": [
+        "src/renderer/Components/Container/TerminalPanels/Panel/Pane/splitRight.js"
+      ],
+      "readJSON": [
+        "src/jsonIO/readJSON.js"
+      ],
+      "writeJSON": [
+        "src/jsonIO/writeJSON.js"
+      ],
+      "Compass": [
+        "src/renderer/MenuServices/Compass.js"
+      ],
+      "TabNavItem": [
+        "src/renderer/Components/TitleBar/TabNav/TabNavItem.jsx"
+      ],
+      "AppButtons": [
+        "src/renderer/Components/TitleBar/WinowControls/AppButtons.jsx"
+      ],
+      "MenuCss": [
+        "src/renderer/MenuServices/MenuRoot.css"
+      ],
+      "TabPanelItem": [
+        "src/renderer/Components/Container/TerminalPanels/TabPanelItem.jsx"
+      ],
+      "Tabs": [
+        "src/renderer/Components/Container/TerminalPanels/Tabs.jsx"
+      ],
+      "TerminalMenu": [
+        "src/renderer/MenuServices/TerminalMenu.js"
+      ],
+      "System": [
+        "src/renderer/System.js"
+      ],
+      "Init": [
+        "src/renderer/Init.js"
+      ],
+      "Messages": [
+        "src/renderer/Components/StatusBar/Messages/Messages.jsx"
+      ],
+      "KnightsWatch": [
+        "src/renderer/Utility/KnightsWatch.js"
+      ],
+      "Open": [
+        "src/renderer/MenuServices/Open.js"
+      ],
+      "WelcomePanel": [
+        "src/renderer/Components/Container/WelcomePanel/WelcomePanel.jsx"
+      ],
+      "ColorSetup": [
+        "src/renderer/Theme/ColorSetup.js"
+      ],
+      "LeftAnchor": [
+        "src/renderer/Components/StatusBar/LeftAnchor/LeftAnchor.jsx"
+      ],
+      "RightAnchor": [
+        "src/renderer/Components/StatusBar/RightAnchor/RightAnchor.jsx"
+      ],
+      "urlSchemes": [
+        "src/renderer/Utility/urlSchemes.js"
+      ],
+      "Actions": [
+        "src/renderer/Utility/Actions.js"
+      ],
+      "Container": [
+        "src/renderer/Components/Container/Container.jsx"
+      ],
+      "KeyBindings": [
+        "src/renderer/Components/Container/TerminalPanels/Panel/Pane/KeyBindings.js"
+      ],
+      "resize": [
+        "src/renderer/Components/Container/TerminalPanels/Panel/Pane/resize.js"
+      ],
+      "profileSlice": [
+        "src/renderer/profileSlice.js"
+      ],
+      "TerminalPanels": [
+        "src/renderer/Components/Container/TerminalPanels/TerminalPanels.jsx"
+      ],
+      "StatusBar": [
+        "src/renderer/Components/StatusBar/StatusBar.jsx"
+      ],
+      "TitleBar": [
+        "src/renderer/Components/Container/TerminalPanels/Panel/TitleBar/TitleBar.jsx"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build"
+  ]
+}

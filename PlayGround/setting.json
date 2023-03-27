@@ -1,0 +1,41 @@
+{
+    "sonicPort": 3030,
+    "terminal.defaultProfile.linux": "bash",
+    "terminal.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "1234",
+            "icon": "terminal-tmux"
+        }
+    },
+    "terminal.keyBindings": {
+        "splitPane": "alt+s",
+        "newTab": "ctrl+t",
+        "newWindow": "ctrl+n",
+        "focusPrevPane": "alt+arrowleft",
+        "focusNextPane": "alt+arrowright"
+    },
+    "fileActions": {
+        "js": {
+            "command": "node ${fileName}\r"
+        },
+        "deb": {
+            "command": "sudo dpkg -i ${fileName}\r"
+        },
+        "py": {
+            "command": "python3 ${fileName}\r"
+        },
+        "sh": {
+            "command": "./${fileName}\r"
+        }
+    }
+}

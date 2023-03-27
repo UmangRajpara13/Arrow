@@ -1,0 +1,185 @@
+{
+    "currentPalette": "Dark",
+    "colorPalettes": {
+        "Dark": {
+            "paneSplit": "#7d7d7d",
+            "windowControls": {
+                "background": "#444444",
+                "foreground": "#c9c9c9",
+                "hover_BG": "#918f8f5d"
+            },
+            "titleBar": {
+                "background": "#302f2f",
+                "foreground": "#c9c9c9",
+                "activeTabLabel": "#eceaea",
+                "activeTab_BG": "#161616",
+                "inactiveTabLabel": "#929191",
+                "inactiveTabHover_BG": "#9b99994d"
+            },
+            "statusBar": {
+                "background": "#111111",
+                "label": "#e4e4e4",
+                "hover_BG": "#827f7f82"
+            },
+            "autocomplete": {
+                "background": "#111111",
+                "border": "#00b7e9",
+                "label": "#dfdfdf",
+                "hover_BG": "#6adff441"
+            },
+            "menu": {
+                "background": "#393939",
+                "seperator": "#cbcbcb",
+                "label": "#cbcbcb",
+                "hover_BG": "#707070d1"
+            },
+            "scrollBar": {
+                "foreground": "#949596",
+                "hover_FG": "#d1d2d3",
+                "hover_BG": "#302f2f"
+            },
+            "terminal": {
+                "background": "#161616",
+                "foreground": "#eceaea",
+                "selection": "#1ec4f744",
+                "cursor": "#e4e4e4",
+                "brightBlack": "#f3f0f0",
+                "black": "#272727",
+                "brightBlue": "#1779e9",
+                "blue": "#09e5f5",
+                "brightCyan": "#28e4e4",
+                "cyan": "#53e9e9",
+                "brightGreen": "#4bf109",
+                "green": "#24b807",
+                "brightMagenta": "#b31db3",
+                "magenta": "#b419b4",
+                "brightRed": "#e90202",
+                "red": "#fa3232",
+                "brightWhite": "#d8dad9",
+                "white": "#adadad",
+                "brightYellow": "#f1ce03",
+                "yellow": "#d4b527"
+            }
+        },
+        "Blue": {
+            "paneSplit": "#7d7d7d",
+            "windowControls": {
+                "background": "#141414fd",
+                "foreground": "#b4b4b4",
+                "hover_BG": "#0b6379"
+            },
+            "titleBar": {
+                "background": "#a9adaf",
+                "foreground": "#000000",
+                "activeTabLabel": "#ffffff",
+                "activeTab_BG": "#045569",
+                "inactiveTabLabel": "#1b1b1b",
+                "inactiveTabHover_BG": "#9b99994d"
+            },
+            "statusBar": {
+                "background": "#0b6379",
+                "label": "#e4e4e4",
+                "hover_BG": "#e4e4e42e"
+            },
+            "autocomplete": {
+                "border": "#00b7e9",
+                "background": "#353434",
+                "label": "#dfdfdf",
+                "hover_BG": "#6adff441"
+            },
+            "menu": {
+                "background": "#808080",
+                "seperator": "#000000",
+                "label": "#161616",
+                "hover_BG": "#c9c4c4a8"
+            },
+            "scrollBar": {
+                "foreground": "#afc2ca",
+                "hover_FG": "#6b6a6a",
+                "hover_BG": "#b8b8b8"
+            },
+            "terminal": {
+                "background": "#045569",
+                "foreground": "#ffffff",
+                "selection": "#bcd1d257",
+                "cursor": "#e4e4e4",
+                "brightBlack": "#f3f0f0",
+                "black": "#000000",
+                "brightBlue": "#11c9cf",
+                "blue": "#cfccc9",
+                "brightCyan": "#35baf3",
+                "cyan": "#09afbb",
+                "brightGreen": "#4cce19",
+                "green": "#6bbb4c",
+                "brightMagenta": "#b6678b",
+                "magenta": "#8a2e57",
+                "brightRed": "#fa6547",
+                "red": "#eb836e",
+                "brightWhite": "#0bb86a",
+                "white": "#1dce7e",
+                "brightYellow": "#ecca04",
+                "yellow": "#d0d310"
+            }
+        },
+        "Metal": {
+            "paneSplit": "#7d7d7d",
+            "windowControls": {
+                "background": "#bdbbba",
+                "foreground": "#363535",
+                "hover_BG": "#afadad83"
+            },
+            "titleBar": {
+                "background": "#858a8d",
+                "foreground": "#000000",
+                "activeTabLabel": "#4e4f50",
+                "activeTab_BG": "#c4cace",
+                "inactiveTabLabel": "#161616",
+                "inactiveTabHover_BG": "#c4cace"
+            },
+            "statusBar": {
+                "background": "#acb4b9",
+                "label": "#292929",
+                "hover_BG": "#8884845b"
+            },
+            "autocomplete": {
+                "border": "#0c0c0c",
+                "background": "#d7d7d8",
+                "label": "#3d3c3c",
+                "hover_BG": "#6adff441"
+            },
+            "menu": {
+                "background": "#c1c1c1",
+                "seperator": "#000000",
+                "label": "#161616",
+                "hover_BG": "#9b9b9b70"
+            },
+            "scrollBar": {
+                "foreground": "#9e9fa0",
+                "hover_FG": "#6b6a6a",
+                "hover_BG": "#b8b8b8"
+            },
+            "terminal": {
+                "background": "#c4cace",
+                "foreground": "#000000",
+                "selection": "#5d616333",
+                "cursor": "#000000",
+                "brightBlack": "#161616",
+                "black": "#e9e9e9",
+                "brightBlue": "#1779e9",
+                "blue": "#2e73c2",
+                "brightCyan": "#07b4b4",
+                "cyan": "#037e7e",
+                "brightGreen": "#27bd08",
+                "green": "#1d9705",
+                "brightMagenta": "#b31db3",
+                "magenta": "#b419b4",
+                "brightRed": "#fa2828",
+                "red": "#fa4242",
+                "brightWhite": "#4e4e4e",
+                "white": "#202020",
+                "brightYellow": "#838115",
+                "yellow": "#838115"
+            }
+        }
+    }
+}
