@@ -12,8 +12,8 @@
     "kill:WS:win": "netstat -ano | findstr :3030",
     "development": "electron-esbuild dev",
     "build": "electron-esbuild build",
-    "dist": "yarn build && electron-builder",
-    "postdist": "sudo dpkg -i dist/sonic_0.0.1_amd64.deb"
+    "production": "yarn build && electron-builder",
+    "postproduction": "sudo dpkg -i dist/sonic_0.0.1_amd64.deb"
   },
   "devDependencies": {
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
