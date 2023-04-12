@@ -3,12 +3,9 @@
 import React, { useEffect, useState } from "react";
 import "jquery-ui.css";
 import "jquery-ui";
-// import 'bootstrap'
 import "bootstrapCss";
 import "bootstrapIcons";
 import "./App.css";
-import $ from "jquery";
-
 import { sep } from "path";
 import { Container } from "Container";
 import { watch } from "chokidar";
@@ -23,15 +20,13 @@ import { settings } from "Init";
 import { ThemeSetup } from "ColorSetup";
 import {
   ensureDir,
-  readJsonSync,
-  writeJsonSync,
-  ensureDirSync,
-  writeJson,
-  readJson,
+  ensureDirSync
 } from "fs-extra";
 import { useSelector, useDispatch } from "react-redux";
 import { setBookmarks } from "profileSlice";
 import { homedir } from "os";
+import { addPane } from "profileSlice";
+import yargs from "yargs";
 
 var globals, watcher;
 
@@ -51,7 +46,6 @@ var globals, watcher;
 // })
 
 function App() {
-  var bookmarks = useSelector((state) => state.profile.bookmarks);
 
   const dispatch = useDispatch();
 
@@ -68,15 +62,14 @@ function App() {
         version,
         id,
         appData,
-        home,
         commandLine
       ) {
+        console.log(commandLine)
         globals = {
           isDev: process.env.NODE_ENV !== "production",
           userData: join(appData, appName),
           settingsPath: join(appData, appName, `settings`),
-          appName: appName,
-          homePath: home,
+          appName: appName,  
           version: version,
           windowID: id,
           sonicHistory: join(appData, appName, `sonicHistory.txt`),
@@ -84,13 +77,13 @@ function App() {
             process.platform !== "win32"
               ? new RegExp(/((\~|\/)(((\w)|((\s|\W)\w)|\/)+)?)/)
               : new RegExp(
-                  /((\~|\/)(((\w)|((\s|\W)\w)|\/)+)?)|(([A-Za-z])(:)(([^\<\>\/\:\"\?\*\|])+)?)/
-                ),
+                /((\~|\/)(((\w)|((\s|\W)\w)|\/)+)?)|(([A-Za-z])(:)(([^\<\>\/\:\"\?\*\|])+)?)/
+              ),
           exePath: exePath,
         };
         // regex stash ->  /(\~|\/)(((\w)|((\s|\W)\w)|\/)+)?/
         // (\~|\/)[.?](((\w)|(\s)\w)+)?
-        ensureDirSync(join(globals.settingsPath), (err) => {});
+        ensureDirSync(join(globals.settingsPath), (err) => { });
 
         watcher = watch(join(globals.userData), {
           // ignored: /(^|[\/\\])\../, // ignore dotfiles
@@ -123,85 +116,143 @@ function App() {
         // hence only load terminal if commandLine[1] is present
         // triggered on new window
 
-        if (commandLine[1]) {
-          dispatch(setLoadTerminal(true));
+        // if (commandLine[1]) {
+        //   dispatch(setLoadTerminal(true));
 
-          if (existsSync(commandLine[1])) {
-            if (lstatSync(commandLine[1]).isDirectory()) {
-              // console.log('its Directory')
-              ipcRenderer.send("spawn", {
-                process:
-                  settings["terminal.profiles"][
-                    settings["terminal.defaultProfile"]
-                  ][`path`],
-                args: settings["terminal.profiles"][
-                  settings["terminal.defaultProfile"]
-                ][`args`],
-                workingDirectory: commandLine[1],
-                windowID: globals.windowID,
-                action: null,
-                currTabNo: null,
-                view: "newTab",
-              });
-            } else {
-              // console.log('// run Actions coz its a file ')
-              fileName = commandLine[1].substring(
-                commandLine[1].lastIndexOf(sep) + 1,
-                commandLine[1].lastIndexOf(".")
-              );
-              fileType = commandLine[1].substring(
-                commandLine[1].lastIndexOf(".") + 1
-              );
-              // console.log(fileName, fileType, settings['terminal.file.actions'][`${fileType}`].command.replace('${fileName}', `${fileName}.${fileType}`))
+        //   if (existsSync(commandLine[1])) {
+        //     if (lstatSync(commandLine[1]).isDirectory()) {
+        //       // console.log('its Directory')
+        //       ipcRenderer.send("spawn", {
+        //         process:
+        //           settings["terminal.profiles"][
+        //           settings["terminal.defaultProfile"]
+        //           ][`path`],
+        //         args: settings["terminal.profiles"][
+        //           settings["terminal.defaultProfile"]
+        //         ][`args`],
+        //         workingDirectory: commandLine[1],
+        //         windowID: globals.windowID,
+        //         action: null,
+        //         view: "newTab",
+        //       });
+        //     } else {
+        //       // console.log('// run Actions coz its a file ')
+        //       fileName = commandLine[1].substring(
+        //         commandLine[1].lastIndexOf(sep) + 1,
+        //         commandLine[1].lastIndexOf(".")
+        //       );
+        //       fileType = commandLine[1].substring(
+        //         commandLine[1].lastIndexOf(".") + 1
+        //       );
+        //       // console.log(fileName, fileType, settings['terminal.file.actions'][`${fileType}`].command.replace('${fileName}', `${fileName}.${fileType}`))
 
-              ipcRenderer.send("spawn", {
-                process:
-                  settings["terminal.profiles"][
-                    settings["terminal.defaultProfile"]
-                  ][`path`],
-                args: settings["terminal.profiles"][
-                  settings["terminal.defaultProfile"]
-                ][`args`],
-                workingDirectory: commandLine[1].substring(
-                  0,
-                  commandLine[1].lastIndexOf(sep)
-                ),
-                view: "newTab",
-                windowID: globals.windowID,
-                action: settings["terminal.file.actions"][
-                  `${fileType}`
-                ].command.replace("${fileName}", `${fileName}.${fileType}`),
-                currTabNo: null,
-              });
+        //       ipcRenderer.send("spawn", {
+        //         process:
+        //           settings["terminal.profiles"][
+        //           settings["terminal.defaultProfile"]
+        //           ][`path`],
+        //         args: settings["terminal.profiles"][
+        //           settings["terminal.defaultProfile"]
+        //         ][`args`],
+        //         workingDirectory: commandLine[1].substring(
+        //           0,
+        //           commandLine[1].lastIndexOf(sep)
+        //         ),
+        //         view: "newTab",
+        //         windowID: globals.windowID,
+        //         action: settings["terminal.file.actions"][
+        //           `${fileType}`
+        //         ].command.replace("${fileName}", `${fileName}.${fileType}`)
+        //       });
+        //     }
+        //   } else {
+        //     // console.log('// either -e or doesnt exist')
+        //     if (commandLine[1] === "-e") {
+        //       // console.log(' // code session')
+        //       dispatch(setLoadTerminal(true));
+        //       ipcRenderer.send("spawn", {
+        //         process: commandLine[2],
+        //         args: commandLine[3],
+        //         workingDirectory: commandLine[1].substring(
+        //           0,
+        //           commandLine[1].lastIndexOf(sep)
+        //         ),
+        //         view: "newTab",
+        //         windowID: globals.windowID,
+        //         action: commandLine[4],
+        //         currTabNo: null,
+        //       });
+        //     } else {
+        //       alert(`Path ${commandLine[1]} does not exist`);
+        //     }
+        //   }
+        // }
+
+        // if (existsSync(workingDirectory)) {
+        //   console.log('// open Dir')
+        //   // pwd = workingDirectory, action = null, type = 'directory'
+        //   const commandLineObject = yargs(commandLine).parse()
+
+        //   if (commandLineObject["file"]) {
+        //     const fileNameWithType = commandLineObject["file"]
+        //     const fileName = fileNameWithType.substring(0, fileNameWithType.lastIndexOf('.'))
+        //     const fileType = fileNameWithType.substring(fileNameWithType.lastIndexOf('.') + 1)
+
+        //     knownActions = Object.keys(settings['terminal.file.actions'])
+        //     if (!knownActions.includes(fileType)) {
+        //       alert(`No action configured for .${fileType} file`);
+        //       return
+        //     }
+        //     const action = settings['terminal.file.actions'][`${fileType}`].command.replace('${fileName}', `${fileName}.${fileType}`)
+        //     console.log('fileName', fileName, 'fileType', fileType, action)
+        //     ipcRenderer.send('spawn', {
+        //       process: settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`],
+        //       args: settings['terminal.profiles'][settings['terminal.defaultProfile']][`args`],
+        //       workingDirectory: workingDirectory,
+        //       view: 'newPane',
+        //       windowID: globals.windowID,
+        //       action: action
+        //     })
+        //   }
+        // } else {
+        //   alert(`Path ${workingDirectory} does not Exist!`)
+        // }
+        console.log(yargs(commandLine).parse());
+        const commandLineObject = yargs(commandLine).parse()
+
+        if (existsSync(commandLineObject["dir"])) {
+
+            if (commandLineObject["file"]) {
+                const fileNameWithType = commandLineObject["file"]
+                const fileName = fileNameWithType.substring(0, fileNameWithType.lastIndexOf('.'))
+                const fileType = fileNameWithType.substring(fileNameWithType.lastIndexOf('.') + 1)
+
+                knownActions = Object.keys(settings['terminal.file.actions'])
+                if (!knownActions.includes(fileType)) {
+                    alert(`No action configured for .${fileType} file`);
+                    return
+                }
+                const action = settings['terminal.file.actions'][`${fileType}`].command.replace('${fileName}', `${fileName}.${fileType}`)
+                console.log('fileName', fileName, 'fileType', fileType, action)
+                ipcRenderer.send('spawn', {
+                    process: settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`],
+                    args: settings['terminal.profiles'][settings['terminal.defaultProfile']][`args`],
+                    workingDirectory: commandLineObject["dir"],
+                    view: 'newPane',
+                    windowID: globals.windowID,
+                    action: action
+                })
             }
-          } else {
-            // console.log('// either -e or doesnt exist')
-            if (commandLine[1] === "-e") {
-              // console.log(' // code session')
-              dispatch(setLoadTerminal(true));
-              ipcRenderer.send("spawn", {
-                process: commandLine[2],
-                args: commandLine[3],
-                workingDirectory: commandLine[1].substring(
-                  0,
-                  commandLine[1].lastIndexOf(sep)
-                ),
-                view: "newTab",
-                windowID: globals.windowID,
-                action: commandLine[4],
-                currTabNo: null,
-              });
-            } else {
-              alert(`Path ${commandLine[1]} does not exist`);
-            }
-          }
+        } else {
+            alert(`Path ${commandLineObject["dir"]} does not Exist!`)
         }
+
+
         if (globals.isDev) {
-          dispatch(setLoadTerminal(true));
           ipcRenderer.send("spawn", {
             process:
               settings["terminal.profiles"][
-                settings["terminal.defaultProfile"]
+              settings["terminal.defaultProfile"]
               ][`path`],
             args: settings["terminal.profiles"][
               settings["terminal.defaultProfile"]
@@ -209,13 +260,26 @@ function App() {
             workingDirectory: homedir(),
             view: "newPane",
             windowID: globals.windowID,
-            action: null,
-            currTabNo: null,
+            action: null
           });
         }
       }
     );
-   
+    ipcRenderer.on(
+      "create_pane",
+      (event, obj) => {
+        console.log("create_pane ", obj);
+        if (obj.view == "newPane") {
+          dispatch(addPane(obj));
+        }
+        // Temporary workaround
+        if (obj.action)
+          setTimeout(() => {
+            //  run action straight away
+            ipcRenderer.send("write_pty", obj.pid, obj.action);
+          }, 250);
+      }
+    );
   }, []);
 
   return (

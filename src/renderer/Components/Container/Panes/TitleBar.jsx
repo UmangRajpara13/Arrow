@@ -1,11 +1,11 @@
-import $ from `jquery`;
+import './TitleBar.css'
 
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { ipcRenderer } from 'electron'
-import { updateTitle} from 'profileSlice'
+import { updateTitle } from 'profileSlice'
 
-
+var e_processTitle = {}
 
 function TitleBar(props) {
   // console.log('TitleBar render',props)
@@ -17,13 +17,20 @@ function TitleBar(props) {
     console.log(e);
 
     const terminalId = e.target.id.replace(/^\D+/g, ``);
-   
+
     ipcRenderer.send("kill_pty", terminalId);
   };
 
   useEffect(() => {
 
-    ipcRenderer.once("current_process", (event, pid, title) => {
+    ipcRenderer.on("update_process_title", (event, pid, title) => {
+      e_processTitle = {
+        ...e_processTitle,
+        [pid]: {
+          ...e_processTitle[pid],
+          title: title
+        }
+      }
       dispatch(updateTitle({ panePID: pid, title: title }));
     });
   }, []);
@@ -40,4 +47,4 @@ function TitleBar(props) {
   );
 }
 
-export { TitleBar };
+export { TitleBar,e_processTitle };

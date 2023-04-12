@@ -5,21 +5,15 @@ import React, { useEffect, useState } from `react`;
 import { useSelector, useDispatch } from 'react-redux'
 import { ipcRenderer, shell } from 'electron'
 import {
-    setUpdatesAvailable, 
+    setUpdatesAvailable,
 } from 'src/renderer/profileSlice';
 import { globals } from `App`
 import { LoadProfileMenu } from 'Profile'
-import { hostname, userInfo } from 'os';
-import { currentPWD } from "xTerm"
+import { hostname, userInfo } from "os";
 
-let limitFeatures = false, limitMessage, e_email
 
 function LeftAnchor() {
     const updatesAvailable = useSelector((state) => state.profile.updatesAvailable)
-
-    const email = useSelector((state) => state.profile.email)
-    const loadTerminal = useSelector((state) => state.profile.loadTerminal)
-    e_email = email
 
     const dispatch = useDispatch()
 
@@ -28,28 +22,25 @@ function LeftAnchor() {
     });
 
     function update() {
-        shell.openExternal('https://github.com/thevoyagingstar/sonic/releases')
+        shell.openExternal('https://github.com/umangrajpara13/sonic/releases')
     }
-
-   
 
     useEffect(() => {
         LoadProfileMenu()
 
         // listener keeps reference to old state, hence its better to 
         // receive data from main
-
-        ipcRenderer.on('updates_available', () => {
+        ipcRenderer.once('updates_available', () => {
             dispatch(setUpdatesAvailable(true))
         })
     }, []);
+
     return (
         <div className='left_anchor'>
-            <div id="update" className="toolbar_item settings" title="Settings">
-        <i className="bi bi-chevron-up"></i>
-      </div>
-            
-          
+            <div className="toolbar_item settings" style={{ padding: '10px' }}>
+                {`${userInfo().username}@${hostname()}`}
+            </div>
+
             {
                 updatesAvailable &&
                 <div id="update" className="toolbar_item" onClick={update} title="Update">
@@ -60,4 +51,4 @@ function LeftAnchor() {
     )
 }
 
-export { LeftAnchor, limitFeatures, limitMessage, e_email }
+export { LeftAnchor }

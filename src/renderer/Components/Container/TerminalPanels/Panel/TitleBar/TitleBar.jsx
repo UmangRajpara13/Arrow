@@ -21,49 +21,49 @@ function TitleBar(props) {
      const dispatch = useDispatch()
 
      useEffect(() => {
-          ipcRenderer.on('create_pane_title', (event, obj) => {
-               // console.log('create_pane_title ', obj, panes)
-               if (obj.view == 'newTab') {
-                    dispatch(addTabTitle(obj))
-                    if (obj.currTabNo) {
-                         $(`#${obj.currTabNo}`).removeClass('active')
-                    }
-                    dispatch(setActiveTab(obj.pid))
-                    $(`#${obj.pid}`).addClass('active')
+          // ipcRenderer.on('create_pane', (event, obj) => {
+          //      console.log('create_pane ', obj, panes)
+          //      if (obj.view == 'newTab') {
+          //           dispatch(addTabTitle(obj))
+          //           if (obj.currTabNo) {
+          //                $(`#${obj.currTabNo}`).removeClass('active')
+          //           }
+          //           dispatch(setActiveTab(obj.pid))
+          //           $(`#${obj.pid}`).addClass('active')
 
-               }
-               if (obj.view == 'split') {
-                    dispatch(addPaneTitle(obj))
-               }
+          //      }
+          //      if (obj.view == 'split') {
+          //           dispatch(addPaneTitle(obj))
+          //      }
 
-               // Temporary workaround
-               if (obj.action) setTimeout(() => {
-                    //  run action straight away
-                    ipcRenderer.send('write_pty', obj.pid, obj.action)
+          //      // Temporary workaround
+          //      if (obj.action) setTimeout(() => {
+          //           //  run action straight away
+          //           ipcRenderer.send('write_pty', obj.pid, obj.action)
 
-               }, 250)
-               var r = document.querySelector(':root');
+          //      }, 250)
+          //      var r = document.querySelector(':root');
 
-               // if (Object.keys(panes).length > 2) {
-               //      r.style.setProperty('--activeTab_BG', 'red' || "#161616")
-               //      r.style.setProperty('--activeTabLabel', 'blue' || "#929191")
-               // } else {
-               //      r.style.setProperty('--activeTab_BG', colorConfig.colorPalettes[currentPalette].titleBar.background || "#161616")
-               //      r.style.setProperty('--activeTabLabel', colorConfig.colorPalettes[currentPalette].titleBar.foreground || "#eceaea")
-               // }
+          //      // if (Object.keys(panes).length > 2) {
+          //      //      r.style.setProperty('--activeTab_BG', 'red' || "#161616")
+          //      //      r.style.setProperty('--activeTabLabel', 'blue' || "#929191")
+          //      // } else {
+          //      //      r.style.setProperty('--activeTab_BG', colorConfig.colorPalettes[currentPalette].titleBar.background || "#161616")
+          //      //      r.style.setProperty('--activeTabLabel', colorConfig.colorPalettes[currentPalette].titleBar.foreground || "#eceaea")
+          //      // }
 
-          })
-          ipcRenderer.on('current_process', (event, pid, title) => {
-               // console.log('current_process',pid, title)
-               const parentPID = $(`#xterm-${pid}`)[0].parentElement.id.replace(/^\D+/g, ``)
-               e_processTitle = {
-                    ...e_processTitle, [parentPID]: {
-                         ...e_processTitle[parentPID],
-                         [pid]: title
-                    }
-               }
-               dispatch(updateTitle({ parentPID: parentPID, panePID: pid, title: title }))
-          })
+          // })
+          // ipcRenderer.on('update_process_title', (event, pid, title) => {
+          //      // console.log('update_process_title',pid, title)
+          //      const parentPID = $(`#xterm-${pid}`)[0].parentElement.id.replace(/^\D+/g, ``)
+          //      e_processTitle = {
+          //           ...e_processTitle, [parentPID]: {
+          //                ...e_processTitle[parentPID],
+          //                [pid]: title
+          //           }
+          //      }
+          //      dispatch(updateTitle({ parentPID: parentPID, panePID: pid, title: title }))
+          // })
      }, [])
      return (
           <div id="title-bar" style={{

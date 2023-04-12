@@ -5,53 +5,56 @@ import { ipcRenderer } from 'electron'
 
 $(window).on('resize', function (e) {
   // console.log($(window).width() , $(window).height())
-  if ($(`.active`)[0]?.id) {
-    Resize()
-  }
+  // if ($(`.active`)[0]?.id) {
+  //   Resize()
+  // }
+  if (xtermMap.size > 0) Resize()
 })
 
 function Resize() {
   $(`#container`)[0]?.childNodes.forEach(terminalPane => {
-    console.log(terminalPane)
+
+    console.log(terminalPane.id)
     if (terminalPane.id) {
-    term_pid = terminalPane.id.replace(/^\D+/g, ``)
-    w = $(`#xterm-${term_pid}`).width()
-    console.log('term_pid', term_pid, w)
-    paddingBottom = parseFloat($(`#xterm-${term_pid}`).css('padding-bottom'))
-    paddingTop = parseFloat($(`#xterm-${term_pid}`).css('padding-top'))
-    paddingLeft = parseFloat($(`xterm-${term_pid}`).css('padding-Left'))
-    paddingRight = parseFloat($(`xterm-${term_pid}`).css('padding-Right'))
+      term_pid = terminalPane.id.replace(/^\D+/g, ``)
+      w = $(`#xterm-${term_pid}`).width()
+      // console.log('term_pid', term_pid, w)
+      paddingBottom = parseFloat($(`#xterm-${term_pid}`).css('padding-bottom'))
+      paddingTop = parseFloat($(`#xterm-${term_pid}`).css('padding-top'))
+      paddingLeft = parseFloat($(`xterm-${term_pid}`).css('padding-Left'))
+      paddingRight = parseFloat($(`xterm-${term_pid}`).css('padding-Right'))
 
-    scrollBar = parseFloat($(`.xterm`).innerWidth() - $(`.xterm`).width())
-    
-    scaledWidthAvailable = (w - scrollBar) * window.devicePixelRatio;
+      scrollBar = parseFloat($(`.xterm`).innerWidth() - $(`.xterm`).width())
 
-    letterSpacing = xtermMap.get(term_pid).getOption('letterSpacing');
-    realCellWidth = xtermMap.get(term_pid)['_core']._renderService.dimensions.actualCellWidth
-    charWidth = realCellWidth - Math.round(letterSpacing) / window.devicePixelRatio
-    scaledCharWidth = charWidth * window.devicePixelRatio + letterSpacing;
+      scaledWidthAvailable = (w - scrollBar) * window.devicePixelRatio;
 
-    cols = Math.max(Math.floor(scaledWidthAvailable / scaledCharWidth), 1);
-    h = document.getElementById(`xterm-${term_pid}`).offsetHeight
-    headingHeight = $('#title-bar').height()
+      letterSpacing = xtermMap.get(term_pid).getOption('letterSpacing');
+      realCellWidth = xtermMap.get(term_pid)['_core']._renderService.dimensions.actualCellWidth
+      charWidth = realCellWidth - Math.round(letterSpacing) / window.devicePixelRatio
+      scaledCharWidth = charWidth * window.devicePixelRatio + letterSpacing;
 
-    scaledHeightAvailable = (h - paddingBottom - paddingTop) * window.devicePixelRatio;
+      cols = Math.max(Math.floor(scaledWidthAvailable / scaledCharWidth), 1);
 
-    lineHeight = xtermMap.get(term_pid).getOption('lineHeight');
-    realCellHeight = xtermMap.get(term_pid)['_core']._renderService.dimensions.actualCellHeight
-    // console.log(h, toolbarHeight, headingHeight)
-    charHeight = realCellHeight / lineHeight
-    scaledCharHeight = Math.ceil(charHeight * window.devicePixelRatio);
-    // console.log(scaledCharHeight)
-    scaledLineHeight = Math.floor(scaledCharHeight * lineHeight);
-    // console.log(scaledLineHeight)
+      h = document.getElementById(`xterm-${term_pid}`).offsetHeight
 
-    rows = Math.max(Math.floor(scaledHeightAvailable / scaledLineHeight), 1);
-    console.log(rows,cols)
+      scaledHeightAvailable = (h - paddingBottom - paddingTop) * window.devicePixelRatio;
 
-    ipcRenderer.send('resize_pty', term_pid, cols, rows)
-    xtermMap.get(term_pid).resize(cols, rows)
-  } })
+      lineHeight = xtermMap.get(term_pid).getOption('lineHeight');
+      realCellHeight = xtermMap.get(term_pid)['_core']._renderService.dimensions.actualCellHeight
+      // console.log(h, toolbarHeight, headingHeight)
+      charHeight = realCellHeight / lineHeight
+      scaledCharHeight = Math.ceil(charHeight * window.devicePixelRatio);
+      // console.log(scaledCharHeight)
+      scaledLineHeight = Math.floor(scaledCharHeight * lineHeight);
+      // console.log(scaledLineHeight)
+
+      rows = Math.max(Math.floor(scaledHeightAvailable / scaledLineHeight), 1);
+      // console.log(rows, cols)
+
+      ipcRenderer.send('resize_pty', term_pid, cols, rows)
+      xtermMap.get(term_pid).resize(cols, rows)
+    }
+  })
   // if ($(`.active`)[0]?.id) {
 
   //   var id = $(`.active`)[0]?.id

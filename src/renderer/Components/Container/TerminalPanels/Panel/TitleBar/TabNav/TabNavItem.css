@@ -1,7 +1,5 @@
 /* Dynamic */
-.undragable {
-    -webkit-app-region: no-drag !important;
-}
+
 .tab-title-split {
     flex: 0 1 0.5px;
     background-color: var(--activeTabLabel);

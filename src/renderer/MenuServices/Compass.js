@@ -4,14 +4,14 @@ import $ from `jquery`
 import { writejsonfile } from `writeJSON`
 import { directory_switch, UpdateDirectoryLink } from `xTerm`
 import { shell } from `electron`
-import { readdirSync, statSync,  } from `fs`
+import { readdirSync, statSync, } from `fs`
 import { join, relative, sep } from `path`
-import { active_term,  xtermMap } from `xTerm`;
+import { active_term, xtermMap } from `xTerm`;
 import { globals } from `App`
 import { homedir } from 'os'
 import { clickPosition } from 'TerminalMenu'
 import { ipcRenderer } from 'electron'
-import {  settings } from "Init"
+import { settings } from "Init"
 
 function Compass() {
 
@@ -86,10 +86,9 @@ function Compass() {
                         process: settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`],
                         args: settings['terminal.profiles'][settings['terminal.defaultProfile']][`args`],
                         workingDirectory: directory_switch,
-                        view: 'split',
+                        view: 'newPane',
                         windowID: globals.windowID,
-                        action: null,
-                        currTabNo: $('.active')[0].id,
+                        action: null
                     })
                 }
                 else {
@@ -153,10 +152,9 @@ function Compass() {
                         process: settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`],
                         args: settings['terminal.profiles'][settings['terminal.defaultProfile']][`args`],
                         workingDirectory: directory_switch.substring(0, directory_switch.lastIndexOf(sep)),
-                        view: 'split',
+                        view: 'newPane',
                         windowID: globals.windowID,
-                        action: null,
-                        currTabNo: $('.active')[0].id,
+                        action: null
                     })
                 }
                 else {
@@ -216,10 +214,9 @@ function Compass() {
                                         process: settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`],
                                         args: settings['terminal.profiles'][settings['terminal.defaultProfile']][`args`],
                                         workingDirectory: join(directory_switch, key),
-                                        view: 'split',
+                                        view: 'newPane',
                                         windowID: globals.windowID,
-                                        action: null,
-                                        currTabNo: $('.active')[0].id,
+                                        action: null
                                     })
                                 }
                                 else {
@@ -252,13 +249,12 @@ function Compass() {
     $(`#compass`).on(`click`, function (event) {
         var $this = $(this);
 
-        // console.log(`onclick`, event, $this.position())
+        console.log(`onclick`, event, $this.position())
         // store a callback on the trigger
-        // $this.data(`runCallbackThingie`, createSomeMenu);
+        $this.data(`runCallbackThingie`, createSomeMenu);
+
         // open the contextMenu asynchronously
-        // $this.contextMenu(position);
-        // console.log(file_explorer_menu_position)
-        // $this.contextMenu(file_explorer_menu_position);
+        $this.contextMenu();
     })
 
     // console.log(`creating compass`)
@@ -271,10 +267,11 @@ function Compass() {
                 .position({ my: "center center", at: "center center", of: '#container' })
         },
         build: function ($trigger, e) {
-            e.preventDefault();
-            return createSomeMenu()
+            // console.log('building menu')
+            // e.preventDefault();
+            // return createSomeMenu()
             // pull a callback from the trigger
-            // return $trigger.data(`runCallbackThingie`)();
+            return $trigger.data(`runCallbackThingie`)();
         },
         events: {
 

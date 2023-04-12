@@ -3,11 +3,10 @@ import $ from 'jquery';
 import { settings } from 'Init'
 
 import { existsSync } from "fs"
-import { xtermMap, active_term, UpdateSentenceOnPaste, parent_term, ptyProcessMap, currentPWD } from "xTerm"
+import { xtermMap, active_term, UpdateSentenceOnPaste,  currentPWD } from "xTerm"
 import { writejsonfile } from "writeJSON";
 import { join, sep, relative } from "path"
 import { shell, clipboard, ipcRenderer } from 'electron';
-import { limitFeatures, limitMessage } from 'LeftAnchor';
 import { urlActions } from "urlSchemes";
 import { nodeScripts, scriptRunner } from "KnightsWatch"
 import { homedir } from "os";
@@ -15,7 +14,6 @@ import { globals } from "App";
 import { SetMessageOutside } from "Messages";
 import { bookmarks, AddBookmark, RemoveBookmark } from 'Init';
 import { e_processTitle } from 'TitleBar';
-
 var appmenu = {},
     explore_folder_flag = false,
     split_flag = false,
@@ -29,9 +27,7 @@ function LoadTerminalMenu() {
         $(`<div class="paneControls">` +
             `<div class="paneControls-list-nested"><i class="bi bi-list-nested"></i></div>` +
             `<div class="paneControls-sort-down"><i class="bi bi-sort-down"></i></div>` +
-            `<div class="paneControls-folder-symlink-fill"><i class="bi bi-folder-symlink-fill"></i></div>` +
-            `<div class="paneControls-x-lg"><i class="bi bi-x-lg"></i></div></div>`)
-            .appendTo(this)
+            `<div class="paneControls-folder-symlink-fill"><i class="bi bi-folder-symlink-fill"></i></div>`).appendTo(this)
 
         this.addClass(`terminal-menu-paneControls`).on(`contextmenu:focus`, function (e) {
             // setup some awesome stuff
@@ -167,7 +163,7 @@ function LoadTerminalMenu() {
                         icon: 'bi bi-play',
                         callback: () => {
                             // console.log(e_processTitle[parent_term][active_term], defaultProfile)
-                            if (e_processTitle[parent_term][active_term] == settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`]) {
+                            if (e_processTitle[active_term]["title"] == settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`]) {
                                 if (scriptRunner == 'yarn') ipcRenderer.send('write_pty', active_term, `${scriptRunner} ${script}\r`)
                                 else {
                                     if (script == 'start') ipcRenderer.send('write_pty', active_term, `${scriptRunner} ${script}\r`)
@@ -202,20 +198,16 @@ function LoadTerminalMenu() {
                 className: `terminal-menu-item`, name: `Compass`,
                 icon: 'bi bi-compass',
                 callback: (event) => {
-                    // console.log(event)
-                    // !limitFeatures ? $(`ul#hidden_menu_list li#compass`).trigger('click') : confirm(limitMessage) === true ? shell.openExternal('https://thevoyagingstar.com/pricing') : () => { }
-                    !limitFeatures ? $(`ul#hidden_menu_list li#compass`).contextMenu(clickPosition)
-                        : confirm(limitMessage) === true ?
-                            shell.openExternal('https://thevoyagingstar.com/pricing') : () => { }
+                    $(`ul#hidden_menu_list li#compass`).trigger('click')
+
                 }
             },
             "open": {
                 className: `terminal-menu-item`, name: `Open Directory`,
                 callback: () => {
-                    ipcRenderer.send('open_file_dialog', globals.windowID)
+                    ipcRenderer.send('open_file_dialog', globals.windowID, currentPWD)
                 }
             },
-
             ...(xtermMap.get(active_term).hasSelection() && {
                 "sep_2": '-------',
 
@@ -290,10 +282,7 @@ function LoadTerminalMenu() {
             $this.data('runCallbackThingie', createSomeMenu);
 
             // open the contextMenu asynchronously
-            !limitFeatures ?
-                $this.contextMenu({ x: e.clientX, y: e.clientY })
-                : window.confirm(limitMessage) === true ?
-                    shell.openExternal('https://thevoyagingstar.com/pricing') : () => { }
+            $this.contextMenu({ x: e.clientX, y: e.clientY })
         }
     });
 
@@ -337,13 +326,7 @@ function LoadTerminalMenu() {
                         shell.openPath(currentPWD, { activate: true })
                     })
                 })
-                document.querySelectorAll('.paneControls-x-lg').forEach(ele => {
-                    ele.addEventListener('mouseup', (e) => {
-                        // console.log('kill_pty', e)
-                        // ptyProcessMap.get(active_term).kill()
-                        ipcRenderer.send('kill_pty', active_term)
-                    })
-                })
+
                 document.querySelectorAll('.selectionControls-clipboard').forEach(ele => {
                     ele.addEventListener('mouseup', (e) => {
                         // console.log('close', e)
@@ -363,42 +346,7 @@ function LoadTerminalMenu() {
                 })
 
 
-                // document.querySelectorAll('.terminalControls-layout-split').forEach(ele => {
-                //     ele.addEventListener('mouseup', (e) => {
-                //         // console.log('split', $('.active')[0].id)
-                //         ipcRenderer.send('spawn', {
-                //             process: settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`],
-                //             args: settings['terminal.profiles'][settings['terminal.defaultProfile']][`args`],
-                //             workingDirectory: currentPWD,
-                //             view: 'split',
-                //             windowID: globals.windowID,
-                //             action: null,
-                //             currTabNo: $('.active')[0].id
-                //         })
-                //     })
-                // })
-                // document.querySelectorAll('.terminalControls-file-plus').forEach(ele => {
-                //     ele.addEventListener('mouseup', (e) => {
-                //         // console.log('close', e)
-                //         ipcRenderer.send('spawn', {
-                //             process: settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`],
-                //             args: settings['terminal.profiles'][settings['terminal.defaultProfile']][`args`],
-                //             workingDirectory: currentPWD,
-                //             view: 'newTab',
-                //             windowID: globals.windowID,
-                //             action: null,
-                //             currTabNo: $('.active')[0].id
 
-                //         })
-                //     })
-                // })
-                // document.querySelectorAll('.terminalControls-window-plus').forEach(ele => {
-                //     ele.addEventListener('mouseup', (e) => {
-                //         // console.log('close', e)
-                //         ipcRenderer.send('create_new_window', currentPWD)
-
-                //     })
-                // })
 
                 document.querySelectorAll('.bookmark-remove').forEach(ele => {
                     ele.addEventListener('mouseup', (e) => {

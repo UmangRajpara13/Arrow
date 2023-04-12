@@ -3,7 +3,7 @@ import { xTerminal, xtermMap } from "xTerm";
 import $ from "jquery";
 import { useSelector, useDispatch } from "react-redux";
 import { ipcRenderer } from "electron";
-import { TitleBar } from "./TitleBar";
+import { TitleBar } from "TitleBar";
 import Pane from "./Pane";
 import { LoadTerminalMenu } from "TerminalMenu";
 import { Resize } from "resize";
@@ -87,7 +87,7 @@ function Panes(props) {
   return (
     Object.keys(panesMap).map((e, i, panes) => (
       <Fragment key={e}>
-        <div key={e} id={e} className="pane" style={{ flexGrow: "1" }}>
+        <div key={e} id={e} className="pane" style={{ flexGrow: "50" }}>
           <div className="terminal-pane">
             <TitleBar id={e}/>
             <Pane key={e} id={`xterm-${e}`} />

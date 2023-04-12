@@ -11,7 +11,7 @@ const initialState = {
   panesTitle: {},
   activeTab: null,
   action: null,
-  orientation: 'vertical'
+  showStartupPanel: false
 }
 
 export const profileSlice = createSlice({
@@ -23,33 +23,25 @@ export const profileSlice = createSlice({
       // console.log(action)
       state.action = action.payload
     },
-    setActiveTab: (state, action) => {
+    setShowStartupPanel: (state, action) => {
       // console.log(action)
-      state.activeTab = action.payload
+      state.showStartupPanel = action.payload
     },
-    addTab: (state, action) => {
-      // console.log(action.payload[action.payload.pid])
-      state.panes = {
-        ...state.panes,
-        [action.payload.pid]: { [action.payload.pid]: action.payload }
-      }
-    },
-    addTabTitle: (state, action) => {
-      // console.log(action)
-      // state.panesTitle = {
-      //   ...state.panesTitle,
-      //   [action.payload.pid]: { [action.payload.pid]: action.payload }
-      // }
-    },
+    // setActiveTab: (state, action) => {
+    //   // console.log(action)
+    //   state.activeTab = action.payload
+    // },
+    // addTab: (state, action) => {
+    //   // console.log(action.payload[action.payload.pid])
+    //   state.panes = {
+    //     ...state.panes,
+    //     [action.payload.pid]: { [action.payload.pid]: action.payload }
+    //   }
+    // },
     addPane: (state, action) => {
       // console.log(action)
-      // state.panes = {
-      //   ...state.panes,
-      //   [action.payload.currTabNo]: {
-      //     ...state.panes[action.payload.currTabNo],
-      //     [action.payload.pid]: {}
-      //   }
-      // }
+      if (Object.keys(state.panesMap).length == 0) state.showStartupPanel = true
+
       state.panesTitle = {
         ...state.panesTitle,
         [action.payload.pid]: { title: action.payload.title }
@@ -58,21 +50,10 @@ export const profileSlice = createSlice({
         ...state.panesMap,
         [action.payload.pid]: {}
       }
-     
+      // console.log(Object.keys(state.panesMap).length)
     },
-  
+
     updateTitle: (state, action) => {
-      // console.log(action)
-      // state.panesTitle = {
-      //   ...state.panesTitle,
-      //   [action.payload.parentPID]: {
-      //     ...state.panesTitle[action.payload.parentPID],
-      //     [action.payload.panePID]: {
-      //       ...state.panesTitle[action.payload.parentPID][action.payload.panePID],
-      //       title: action.payload.title
-      //     }
-      //   }
-      // }
       state.panesTitle = {
         ...state.panesTitle,
         [action.payload.panePID]: {
@@ -88,34 +69,10 @@ export const profileSlice = createSlice({
       state.panesMap = {
         ...nextState
       }
+      if (Object.keys(state.panesMap).length == 0) state.showStartupPanel = false
+
     },
-    removePaneTitle: (state, action) => {
-      // console.log(action)
 
-      // let nextState = { ...state.panesTitle }
-      // delete nextState[action.payload.parentPID][action.payload.panePID]
-      // // if (Object.keys(nextState[action.payload.parentPID]).length = 0) delete nextState[action.payload.parentPID]
-      // state.panesTitle = {
-      //   ...nextState
-      // }
-      // // removinf panel and its li here if no panes , this is a temp workaround
-
-      // if (Object.keys(state.panes[action.payload.parentPID]).length == 0) {
-      //   let nextPanesState = { ...state.panes }
-      //   delete nextPanesState[action.payload.parentPID]
-
-      //   state.panes = {
-      //     ...nextPanesState
-      //   }
-
-      //   let nextTitleState = { ...state.panesTitle }
-      //   delete nextTitleState[action.payload.parentPID]
-      //   state.panesTitle = {
-      //     ...nextTitleState
-      //   }
-      // }
-      // if (xtermMap.size == 0) state.loadTerminal = false
-    },
 
     setBookmarks: (state, action) => {
       // console.log(action)
@@ -130,10 +87,7 @@ export const profileSlice = createSlice({
       // console.log(action)
       state.workingDirectory = action.payload
     },
-    setOrientation: (state, action) => {
-      // console.log(action)
-      state.orientation = action.payload
-    },
+
     setUpdatesAvailable: (state, action) => {
       // console.log(action)
       state.updatesAvailable = action.payload
@@ -143,8 +97,8 @@ export const profileSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { setBookmarks, setLoadTerminal, setWorkingDirectory,
-  setActiveTab, removePane,
+  setActiveTab, removePane, setShowStartupPanel,
   setUpdatesAvailable, addTab, addTabTitle, updateTitle, addPane
-  , removePaneTitle, setAction, setOrientation } = profileSlice.actions
+  , removePaneTitle, setAction } = profileSlice.actions
 
 export default profileSlice.reducer

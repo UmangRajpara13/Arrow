@@ -4,16 +4,8 @@ import $ from 'jquery';
 import { ipcRenderer, shell } from `electron`
 import { globals } from `App`;
 import { join } from `path`;
-import { settings } from "Init";
 
-var wsConnected = true;
-var ws_error
-ipcRenderer.on(`ws_error`, (event, error) => {
-    // console.log(`ws_error`, typeof error)
-    ws_error = error
-    wsConnected = false
-    alert(`${error}:${settings?.sonicPort || 3030}`)
-})
+
 
 function LoadProfileMenu() {
     $(`#toolbar`).contextMenu({
@@ -27,13 +19,13 @@ function LoadProfileMenu() {
                     className: `settings`,
                     name: `Help`,
                     callback: () => {
-                        shell.openExternal('https://github.com/thevoyagingstar/sonic')
+                        shell.openExternal('https://github.com/umangrajpara13/sonic')
                     }
                 },
                 feedback: {
                     className: `settings`,
                     name: `Feedback`,
-                    callback: () => { shell.openExternal('https://github.com/thevoyagingstar/sonic/issues') }
+                    callback: () => { shell.openExternal('https://github.com/umangrajpara13/sonic/issues') }
                 },
                 About: {
                     className: `settings`,
@@ -46,10 +38,7 @@ function LoadProfileMenu() {
 
                     }
                 },
-                ws: {
-                    className: `disabled`,
-                    icon: `bi bi-broadcast`
-                },
+
                 settings: {
                     className: `settings`,
                     name: `Settings`,
@@ -73,8 +62,6 @@ function LoadProfileMenu() {
                     }
                 },
             }
-            if (!wsConnected) defaultItems.ws.name = `${ws_error}`
-            else defaultItems.ws.name = `Listening on ${settings?.sonicPort}`
 
             if (process.platform === 'darwin') appmenu = Object.assign({}, defaultItems)
             else appmenu = Object.assign({}, defaultItems)

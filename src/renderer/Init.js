@@ -57,7 +57,6 @@ function Init() {
                 readJson(path, (err, userSettings) => {
                     if (err) return //console.error(err)
                     settings = { ...defaultSettings, ...userSettings }
-                    ipcRenderer.send(`run_websocket_server`, settings?.sonicPort || 3030)
                     // console.log(settings)
                     resolve()
 

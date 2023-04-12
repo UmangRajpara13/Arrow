@@ -1,4 +1,3 @@
-import axios from 'a';
 import { app } from 'electron';
 import { window, windowsMap } from './main';
 

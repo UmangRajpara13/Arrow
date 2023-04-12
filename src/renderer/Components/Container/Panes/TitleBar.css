@@ -1,0 +1,43 @@
+.undragable {
+  -webkit-app-region: no-drag !important;
+}
+
+.drag-area {
+  flex: 1;
+}
+
+
+.AppButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-app-region: drag;
+  overflow: hidden;
+}
+
+.AppButtons > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close_app {
+  -webkit-app-region: no-drag;
+  text-align: center;
+  display: flex;
+  font-size: 25px;
+  padding: 5px;
+  background-color: var(--titleBar_BG);
+  color: var(--titleBar_FG);
+}
+.close_app i {
+  height: 25px;
+}
+.close_app i::before {
+  vertical-align: super;
+}
+
+.close_app:hover {
+  background-color: var(--close_icon_bg);
+  color: var(--close_icon_fg);
+}

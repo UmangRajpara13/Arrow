@@ -6,16 +6,14 @@ import { join } from `path`
 import { format as formatUrl } from `url`
 import { template } from './menu'
 import { CheckForUpdates,  } from './fetch.js'
-import './ipc'
-import './webSocket.js'
-import './PTY'
+
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
+import './ipc'
+import './PTY'
 
 const argv = yargs(hideBin(process.argv)).parse();
-console.log(argv);
-  
-
+console.log(argv  ,join(__dirname));
 const isDevelopment = process.env.NODE_ENV !== `production`
 
 var fetchLock = false
@@ -66,8 +64,8 @@ function createwindow(url, arg = '') {
                 process.platform === 'darwin' ? darwinWindowOptions : linuxWindowOptions,
                 initialPosition))
 
-        initialPosition.x += 40
-        initialPosition.y += 40
+        initialPosition.x += 10
+        initialPosition.y += 10
 
         windowsMap.set(window.id, window)
 

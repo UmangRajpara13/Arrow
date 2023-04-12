@@ -34,6 +34,7 @@
 .xterm-pane {
   padding: 10px;
   flex: 1;
+  overflow: hidden;
 }
 
 .flex-resizer {

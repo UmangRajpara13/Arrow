@@ -2,10 +2,9 @@
   "name": "sonic",
   "productName": "Sonic",
   "version": "0.0.1",
-  "description": "A GUI based Console Application",
-  "homepage": "https://thevoyagingstar.com",
+  "description": "A GUI based Terminal Application",
+  "homepage": "https://github.com/umangrajpara13/sonic",
   "license": "MIT",
-  "main": "main.js",
   "author": "Umang Rajpara",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",

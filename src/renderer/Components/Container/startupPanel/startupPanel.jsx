@@ -1,25 +1,15 @@
-import './WelcomePanel.css'
+import './startupPanel.css'
 import { ipcRenderer, shell } from "electron";
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { join, sep } from 'path'
 import { globals } from "App";
-import {
-     setLoadTerminal,
-} from 'profileSlice'
-
+ 
 import { homedir } from "os";
 import { bookmarks, settings } from "Init"
 
-function Welcome(props) {
-     // console.log('welcome Mounted')
-
-     const dispatch = useDispatch()
-
-   
-
+function StartupPanel(props) {
      function Home() {
-          dispatch(setLoadTerminal(true))
           ipcRenderer.send('spawn', {
                process: settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`],
                args: settings['terminal.profiles'][settings['terminal.defaultProfile']][`args`],
@@ -31,7 +21,6 @@ function Welcome(props) {
           })
      }
      function Desktop() {
-          dispatch(setLoadTerminal(true))
           ipcRenderer.send('spawn', {
                process: settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`],
                args: settings['terminal.profiles'][settings['terminal.defaultProfile']][`args`],
@@ -43,8 +32,6 @@ function Welcome(props) {
           })
      }
      function LoadTerminal(e) {
-          // console.log(e.target.getAttribute('value'))
-          dispatch(setLoadTerminal(true))
           ipcRenderer.send('spawn', {
                process: settings['terminal.profiles'][settings['terminal.defaultProfile']][`path`],
                args: settings['terminal.profiles'][settings['terminal.defaultProfile']][`args`],
@@ -54,23 +41,26 @@ function Welcome(props) {
                action: null,
                currTabNo: null
           })
-     } 
+     }
      return (
           <div className="welcome-pane noselect" style={{
                backgroundColor: 'var(--background)', color: 'var(--foreground)', position: 'relative',
-               display: 'flex',flex:1,overflow:'hidden', flexDirection: 'column', height: '-webkit-fill-available'
+               display: 'flex', flex: 1, overflow: 'hidden', flexDirection: 'column', height: '-webkit-fill-available'
           }}>
-                        <div className="drag-area" style={{
-                         'WebkitAppRegion': 'drag',
+               <div style={{ display: 'flex' }}>
+                    <div className="drag-area" style={{
+                         'WebkitAppRegion': 'drag', backgroundColor: 'var(--titleBar_BG)',
                     }}></div>
-                  <div className="AppButtons">
-                       
-                       <div className='close_app'>   <i className=" bi bi-x"></i></div>
-                   </div>
+                    <div className="AppButtons">
 
+                         <div className='close_app' onClick={() => {
+                              window.close()
+                         }}>   <i className=" bi bi-x"></i></div>
+                    </div>
+               </div>
                <div style={{
                     display: 'flex', flexDirection: 'row', overflow: 'hidden',
-                    justifyContent: 'space-around', alignItems: 'center',height: '-webkit-fill-available',
+                    justifyContent: 'space-around', alignItems: 'center', height: '-webkit-fill-available',
                     zIndex: '10'
                }}>
 
@@ -123,4 +113,4 @@ function Welcome(props) {
      );
 }
 
-export default Welcome;
+export default StartupPanel;

@@ -32,9 +32,6 @@
       "jquery-ui.css": [
         "pluginJS/jquery-ui-dist/jquery-ui.css"
       ],
-      "a": [
-        "pluginJS/a/a.js"
-      ],
       "context-menu": [
         "pluginJS/contextmenu/jquery.contextMenu.js"
       ],
@@ -98,8 +95,8 @@
       "Open": [
         "src/renderer/MenuServices/Open.js"
       ],
-      "WelcomePanel": [
-        "src/renderer/Components/Container/WelcomePanel/WelcomePanel.jsx"
+      "startupPanel": [
+        "src/renderer/Components/Container/startupPanel/startupPanel.jsx"
       ],
       "ColorSetup": [
         "src/renderer/Theme/ColorSetup.js"
@@ -135,7 +132,7 @@
         "src/renderer/Components/StatusBar/StatusBar.jsx"
       ],
       "TitleBar": [
-        "src/renderer/Components/Container/TerminalPanels/Panel/TitleBar/TitleBar.jsx"
+        "src/renderer/Components/Container/Panes/TitleBar.jsx"
       ]
     }
   },

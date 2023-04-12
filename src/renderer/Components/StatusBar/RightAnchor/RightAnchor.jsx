@@ -2,26 +2,19 @@ import "./RightAnchor.css";
 import $ from "jquery";
 
 import React, { useEffect, useState } from "react";
-import { hostname, userInfo } from "os";
 import { useSelector, useDispatch } from "react-redux";
 import { LoadPalleteMenu } from "../../../MenuServices/PalleteMenu";
 import { Resize } from "resize";
-import { setOrientation } from "profileSlice";
-import { ipcRenderer, shell } from "electron";
+ import { ipcRenderer, shell } from "electron";
 import { settings } from "Init";
 import { currentPWD } from "xTerm"
 import { globals } from `App`
+import { homedir } from "os";
 
 function RightAnchor() {
-  const orientation = useSelector((state) => state.profile.orientation);
-  const loadTerminal = useSelector((state) => state.profile.loadTerminal);
+  
 
-  const dispatch = useDispatch();
-
-  Rotate = () => {
-    orientation == "vertical"
-      ? dispatch(setOrientation("horizontal"))
-      : dispatch(setOrientation("vertical"));
+  Rotate = () => { 
 
     var list = document.getElementsByClassName("panel");
     for (let item of list) {
@@ -47,16 +40,15 @@ function RightAnchor() {
     ipcRenderer.send("spawn", {
       process:
         settings["terminal.profiles"][settings["terminal.defaultProfile"]][
-          `path`
+        `path`
         ],
       args: settings["terminal.profiles"][settings["terminal.defaultProfile"]][
         `args`
       ],
-      workingDirectory: currentPWD,
+      workingDirectory: currentPWD ? currentPWD : homedir(),
       view: "newPane",
       windowID: globals.windowID,
       action: null,
-      currTabNo: $(".active")[0]?.id,
     });
   };
   function NewWindow() {
@@ -74,25 +66,16 @@ function RightAnchor() {
                 </svg>
             </div> */}
 
-{!loadTerminal &&
-                <div className="toolbar_item" style={{ padding: '10px' }}>
-                    {`${userInfo().username}@${hostname()}`}
-                </div>
-            }
-
       <div className="toolbar_item rainbow">🌈</div>
 
-      
-      {loadTerminal && (
-        <div className="toolbar_item" onClick={NewWindow}>
+
+      <div className="toolbar_item" onClick={NewWindow}>
           <i className="bi bi-window-plus"></i>
         </div>
-      )}
-{loadTerminal && (
         <div className="toolbar_item" onClick={Split}>
           <i className="bi bi-layout-split"></i>
         </div>
-      )}
+    
       {/* 
             <div className="toolbar_item settings"  style={{
                     justifyContent: 'center', alignItems: 'center',

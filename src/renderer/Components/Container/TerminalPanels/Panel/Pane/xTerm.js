@@ -114,11 +114,11 @@ function xTerminal(pid) {
 
 
         xtermMap.get(pid).onRender((rows) => {
-            ipcRenderer.send('get_latest_process_name', globals.windowID, pid)
+            ipcRenderer.send('get_last_process_title', globals.windowID, pid)
         });
 
         xtermMap.get(pid).onLineFeed(() => {
-            // ipcRenderer.send('get_latest_process_name', globals.windowID, pid)
+            // ipcRenderer.send('get_last_process_title', globals.windowID, pid)
         });
 
         //     $(`#xterm-${ptyProcess.pid}`).on('mousedown', (event) => {
@@ -443,9 +443,7 @@ function xTerminal(pid) {
         //             // }
         //         } catch (error) {
         //         }
-        //         !limitFeatures ? $(`ul#hidden_menu_list li#compass`).contextMenu({ x: event.clientX, y: event.clientX })
-        //             : confirm(limitMessage) === true ?
-        //                 shell.openExternal('https://thevoyagingstar.com/pricing') : () => { }
+        //    
         //     })
         ipcRenderer.send('render_complete', globals.windowID, pid)
         xtermMap.get(pid).focus()

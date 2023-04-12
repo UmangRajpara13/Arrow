@@ -4,10 +4,11 @@ import { spawn } from `node-pty`
 import shellEnv from 'shell-env';
 import osLocale from 'os-locale';
 import { windowsMap, window } from './main'
-var PTY, ptyProcessMap = new Map();
+
+var  ptyProcessMap = new Map();
 
 ipcMain.on(`spawn`, (event, obj) => {
-    PTY = spawn(obj.process,
+   const PTY = spawn(obj.process,
         obj.args, {
         cwd: obj.workingDirectory,
         env: Object.assign({},
@@ -26,10 +27,7 @@ ipcMain.on(`spawn`, (event, obj) => {
 
     ptyProcessMap.set(PTY.pid, { windowID: obj.windowID, pty: PTY, title: PTY.process })
 
-    windowsMap.get(obj.windowID).webContents.send('create_pane',
-        { ...obj, pid: PTY.pid, title: PTY.process }
-    );
-    event.reply(`create_pane_title`, { ...obj, pid: PTY.pid, title: PTY.process })
+    event.reply(`create_pane`, { ...obj, pid: PTY.pid, title: PTY.process })
 })
 
 ipcMain.on('data', (event, processID, data) => {
@@ -37,8 +35,8 @@ ipcMain.on('data', (event, processID, data) => {
     ptyProcessMap.get(parseInt(processID)).pty.write(data)
 })
 
-ipcMain.on(`get_latest_process_name`, (event, windowID, processID) => {
-    windowsMap.get(windowID).webContents.send('current_process',
+ipcMain.on(`get_last_process_title`, (event, windowID, processID) => {
+    windowsMap.get(windowID).webContents.send('update_process_title',
         processID, ptyProcessMap.get(parseInt(processID)).pty.process
     );
 })
