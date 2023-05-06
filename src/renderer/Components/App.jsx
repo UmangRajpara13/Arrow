@@ -244,7 +244,7 @@ function App() {
                 })
             }
         } else {
-            alert(`Path ${commandLineObject["dir"]} does not Exist!`)
+            // alert(`Path ${commandLineObject["dir"]} does not Exist!`)
         }
 
 
