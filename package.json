@@ -1,9 +1,9 @@
 {
-  "name": "sonic",
-  "productName": "Sonic",
+  "name": "arrow",
+  "productName": "Arrow",
   "version": "0.0.1",
   "description": "A GUI based Terminal Application",
-  "homepage": "https://github.com/umangrajpara13/sonic",
+  "homepage": "https://github.com/umangrajpara13/arrow",
   "license": "MIT",
   "author": "Umang Rajpara",
   "scripts": {
@@ -13,7 +13,7 @@
     "development": "electron-esbuild dev",
     "build": "electron-esbuild build",
     "production": "yarn build && electron-builder",
-    "postproduction": "sudo dpkg -i dist/sonic_0.0.1_amd64.deb"
+    "postproduction": "sudo dpkg -i dist/arrow_0.0.1_amd64.deb"
   },
   "devDependencies": {
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",

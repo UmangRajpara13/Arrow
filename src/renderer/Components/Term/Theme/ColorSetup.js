@@ -2,7 +2,7 @@
 import { getjsonfile } from 'readJSON'
 import { writejsonfile } from 'writeJSON'
 import { all_themes_object } from "./ColorPalletes";
-import { sonicConfig } from "../../Init";
+import { arrowConfig } from "../../Init";
 import { join } from 'path';
 // import { watch } from "chokidar";
 import { ptyProcessMap, xtermMap } from '../Terminal/xTerm';
@@ -94,7 +94,7 @@ async function ThemeSetup() {
                 // writejsonfile(join(globals.settingsPath, 'colorProfiles'),  jsonfile)
             })
         })
-        currentPalette = globals.isDev ? 'sonicDev' : colorConfig[process.platform].currentPalette;
+        currentPalette = globals.isDev ? 'arrowDev' : colorConfig[process.platform].currentPalette;
 
         if (!globals.isDev) {
             ipcRenderer.send('change_palette', currentPalette || 'Dark')

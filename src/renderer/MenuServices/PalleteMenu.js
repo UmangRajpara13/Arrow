@@ -76,7 +76,7 @@ function LoadPalleteMenu() {
                                 : join(globals.exePath, `../resources/${process.platform}/colorSettings.json`)
 
                         confirm(`
-                        The following file contains Default Color Palettes for Sonic Console.\n 
+                        The following file contains Default Color Palettes for Arrow Console.\n 
                         Do not modify this file as it will be replaced on every update.\n
                         if you wish to add your own color palette, use 'Add/Edit' option and create custom color palettes in that file.\n
                         you should use this file as reference for creating custom color palettes`)

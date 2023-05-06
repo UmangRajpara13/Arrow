@@ -53,7 +53,7 @@ ipcMain.on(`max_unmax`, (event, id) => {
         : windowsMap.get(id).maximize()
 })
 
-ipcMain.on(`launchSonic`, (event) => {
+ipcMain.on(`launchArrow`, (event) => {
     url = isDevelopment ? `http://localhost:9080` :
         formatUrl({
             pathname: join(__dirname, `index.html`),

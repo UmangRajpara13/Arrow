@@ -19,13 +19,13 @@ function LoadProfileMenu() {
                     className: `settings`,
                     name: `Help`,
                     callback: () => {
-                        shell.openExternal('https://github.com/umangrajpara13/sonic')
+                        shell.openExternal('https://github.com/umangrajpara13/arrow')
                     }
                 },
                 feedback: {
                     className: `settings`,
                     name: `Feedback`,
-                    callback: () => { shell.openExternal('https://github.com/umangrajpara13/sonic/issues') }
+                    callback: () => { shell.openExternal('https://github.com/umangrajpara13/arrow/issues') }
                 },
                 About: {
                     className: `settings`,

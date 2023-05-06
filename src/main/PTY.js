@@ -18,7 +18,7 @@ ipcMain.on(`spawn`, (event, obj) => {
                 ...(process.platform !== 'win32' &&
                     { TERM: 'xterm-256color' }),
                 COLORTERM: 'truecolor',
-                TERM_PROGRAM: 'sonic',
+                TERM_PROGRAM: 'arrow',
                 TERM_PROGRAM_VERSION: app.getVersion()
             },
             process.env

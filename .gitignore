@@ -3,10 +3,14 @@
 # Learn more about .gitignore:
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
+# development folders
+/Playground
+/dev_scripts
+
 # Node artifact files
-node_modules/
-dist/ 
-stable/
+/node_modules
+/dist
+/stable
 # Compiled Java class files
 *.class
 .env
@@ -48,4 +52,5 @@ Thumbs.db
 *.mov
 *.wmv
 
-Playground/
+playground.txt
+todo

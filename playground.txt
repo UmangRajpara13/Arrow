@@ -2,5 +2,5 @@
 File Actions
 
 no window -> arg i user path reply 
-window -> welcome -> open_in_sonic
-window -> Termianl -> open_in_sonic
+window -> welcome -> open_in_arrow
+window -> Termianl -> open_in_arrow

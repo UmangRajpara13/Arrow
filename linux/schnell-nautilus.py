@@ -1,4 +1,4 @@
-# Sonic Nautilus Extension
+# Arrow Nautilus Extension
 #
 # Place me in ~/.local/share/nautilus-python/extensions/,
 # ensure you have python-nautilus package, restrart Nautilus, and enjoy :)
@@ -10,19 +10,19 @@ from gi.repository import Nautilus, GObject
 from subprocess import call
 import os
 
-# path to sonic
-sonic = 'sonic'
+# path to arrow
+arrow = 'arrow'
 
 # what name do you want to see in the context menu?
-sonicname = 'Sonic Console'
+arrowname = 'Arrow Console'
 
 # always create new window?
 NEWWINDOW = False
 
 
-class SonicExtension(GObject.GObject, Nautilus.MenuProvider):
+class ArrowExtension(GObject.GObject, Nautilus.MenuProvider):
 
-    def sonicname(self, menu, files):
+    def arrowname(self, menu, files):
         safepaths = ''
 
         for file in files:
@@ -30,27 +30,27 @@ class SonicExtension(GObject.GObject, Nautilus.MenuProvider):
             safepaths += '"' + filepath + '" '
 
             # If one of the files we are trying to open is a folder
-            # create a new instance of sonic
+            # create a new instance of arrow
 
 
-        call(sonic + ' ' + safepaths + '&', shell=True)
+        call(arrow + ' ' + safepaths + '&', shell=True)
 
     def get_file_items(self, window, files):
         item = Nautilus.MenuItem(
-            name='SonicOpen',
-            label='Open In ' + sonicname,
-            tip='Opens the selected files with Sonic'
+            name='ArrowOpen',
+            label='Open In ' + arrowname,
+            tip='Opens the selected files with Arrow'
         )
-        item.connect('activate', self.sonicname, files)
+        item.connect('activate', self.arrowname, files)
 
         return [item]
 
     def get_background_items(self, window, file_):
         item = Nautilus.MenuItem(
-            name='SonicOpenBackground',
-            label='Open in ' + sonicname,
-            tip='Opens Sonic in the current directory'
+            name='ArrowOpenBackground',
+            label='Open in ' + arrowname,
+            tip='Opens Arrow in the current directory'
         )
-        item.connect('activate', self.sonicname, [file_])
+        item.connect('activate', self.arrowname, [file_])
 
         return [item]

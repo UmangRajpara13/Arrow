@@ -3,50 +3,50 @@ var r = document.querySelector(':root');
 var rs = getComputedStyle(r)
 const all_themes_object = new Object();
 all_themes_object[process.platform] = new Object()
-all_themes_object[process.platform].currentPalette = process.env.NODE_ENV !== 'production' ? 'sonicDev' : 'Dark'
+all_themes_object[process.platform].currentPalette = process.env.NODE_ENV !== 'production' ? 'arrowDev' : 'Dark'
 
-var sonicDev = new Object()
+var arrowDev = new Object()
 
-// sonicDev.paneSplit = rs.getPropertyValue('--paneSplit')
+// arrowDev.paneSplit = rs.getPropertyValue('--paneSplit')
 
-// sonicDev.windowControls = new Object()
-// sonicDev.windowControls.background = rs.getPropertyValue('--windowControls_BG')
+// arrowDev.windowControls = new Object()
+// arrowDev.windowControls.background = rs.getPropertyValue('--windowControls_BG')
 
 // if (process.platform != 'darwin') {
-//     sonicDev.windowControls.foreground = rs.getPropertyValue('--windowControls_FG')
-//     sonicDev.windowControls.hover_BG = rs.getPropertyValue('--windowControls_BG_Hover')
+//     arrowDev.windowControls.foreground = rs.getPropertyValue('--windowControls_FG')
+//     arrowDev.windowControls.hover_BG = rs.getPropertyValue('--windowControls_BG_Hover')
 // }
 
-sonicDev.titleBar = new Object()
-sonicDev.titleBar.background = rs.getPropertyValue('--titleBar_BG')
-sonicDev.titleBar.foreground = rs.getPropertyValue('--titleBar_FG')
-sonicDev.titleBar.activeTabLabel = rs.getPropertyValue('--activeTabLabel')
-sonicDev.titleBar.activeTab_BG = rs.getPropertyValue('--activeTab_BG')
-sonicDev.titleBar.inactiveTabLabel = rs.getPropertyValue('--inactiveTabLabel')
-sonicDev.titleBar.inactiveTabHover_BG = rs.getPropertyValue('--inactiveTabHover_BG')
+arrowDev.titleBar = new Object()
+arrowDev.titleBar.background = rs.getPropertyValue('--titleBar_BG')
+arrowDev.titleBar.foreground = rs.getPropertyValue('--titleBar_FG')
+arrowDev.titleBar.activeTabLabel = rs.getPropertyValue('--activeTabLabel')
+arrowDev.titleBar.activeTab_BG = rs.getPropertyValue('--activeTab_BG')
+arrowDev.titleBar.inactiveTabLabel = rs.getPropertyValue('--inactiveTabLabel')
+arrowDev.titleBar.inactiveTabHover_BG = rs.getPropertyValue('--inactiveTabHover_BG')
 
 
-// sonicDev.statusBar = new Object()
-// sonicDev.statusBar.background = rs.getPropertyValue('--statusBar_BG')
-// sonicDev.statusBar.label = rs.getPropertyValue('--statusBarLabel')
-// sonicDev.statusBar.hover_BG = rs.getPropertyValue('--statusBarLabel_BG_Hover')
+// arrowDev.statusBar = new Object()
+// arrowDev.statusBar.background = rs.getPropertyValue('--statusBar_BG')
+// arrowDev.statusBar.label = rs.getPropertyValue('--statusBarLabel')
+// arrowDev.statusBar.hover_BG = rs.getPropertyValue('--statusBarLabel_BG_Hover')
 
-// sonicDev.autocomplete = new Object()
-// sonicDev.autocomplete.border = rs.getPropertyValue('--autocompleteBorder')
-// sonicDev.autocomplete.background = rs.getPropertyValue('--autocomplete_BG')
-// sonicDev.autocomplete.label = rs.getPropertyValue('--autocompleteLabel')
-// sonicDev.autocomplete.hover_BG = rs.getPropertyValue('--autocompleteLabelSelect_BG')
+// arrowDev.autocomplete = new Object()
+// arrowDev.autocomplete.border = rs.getPropertyValue('--autocompleteBorder')
+// arrowDev.autocomplete.background = rs.getPropertyValue('--autocomplete_BG')
+// arrowDev.autocomplete.label = rs.getPropertyValue('--autocompleteLabel')
+// arrowDev.autocomplete.hover_BG = rs.getPropertyValue('--autocompleteLabelSelect_BG')
 
-// sonicDev.menu = new Object()
-// sonicDev.menu.background = rs.getPropertyValue('--menu_BG')
-// sonicDev.menu.label = rs.getPropertyValue('--menuLabel')
-// sonicDev.menu.hover_BG = rs.getPropertyValue('--menuLabel_BG_Hover')
-// sonicDev.menu.seperator = rs.getPropertyValue('--menuSeperator')
+// arrowDev.menu = new Object()
+// arrowDev.menu.background = rs.getPropertyValue('--menu_BG')
+// arrowDev.menu.label = rs.getPropertyValue('--menuLabel')
+// arrowDev.menu.hover_BG = rs.getPropertyValue('--menuLabel_BG_Hover')
+// arrowDev.menu.seperator = rs.getPropertyValue('--menuSeperator')
 
-// sonicDev.scrollBar = new Object()
-// sonicDev.scrollBar.foreground = rs.getPropertyValue('--xtermScrollBar')
-// sonicDev.scrollBar.hover_FG = rs.getPropertyValue('--xtermScrollBar_Hover')
-// sonicDev.scrollBar.hover_BG = rs.getPropertyValue('----xtermScrollBar_BG_Hover')
+// arrowDev.scrollBar = new Object()
+// arrowDev.scrollBar.foreground = rs.getPropertyValue('--xtermScrollBar')
+// arrowDev.scrollBar.hover_FG = rs.getPropertyValue('--xtermScrollBar_Hover')
+// arrowDev.scrollBar.hover_BG = rs.getPropertyValue('----xtermScrollBar_BG_Hover')
 
 var terminal = new Object()
 
@@ -79,15 +79,15 @@ terminal.white = rs.getPropertyValue('--white')
 terminal.brightYellow = rs.getPropertyValue('--brightYellow')
 terminal.yellow = rs.getPropertyValue('--yellow')
 
-sonicDev.panel = {}
-sonicDev.panel.terminal = terminal
+arrowDev.panel = {}
+arrowDev.panel.terminal = terminal
 
 // ----------------------------------------------------------------
 
 all_themes_object.colorPalettes = new Object()
 
 if (process.env.NODE_ENV !== 'production') {
-    all_themes_object.colorPalettes.sonicDev = sonicDev
+    all_themes_object.colorPalettes.arrowDev = arrowDev
 }
 
 export { all_themes_object }

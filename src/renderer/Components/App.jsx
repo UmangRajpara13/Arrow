@@ -72,7 +72,7 @@ function App() {
           appName: appName,  
           version: version,
           windowID: id,
-          sonicHistory: join(appData, appName, `sonicHistory.txt`),
+          arrowHistory: join(appData, appName, `arrow_history.txt`),
           dirLinkRegex:
             process.platform !== "win32"
               ? new RegExp(/((\~|\/)(((\w)|((\s|\W)\w)|\/)+)?)/)
@@ -244,7 +244,7 @@ function App() {
                 })
             }
         } else {
-            alert(`Path ${commandLineObject["dir"]} does not Exist!`)
+            // alert(`Path ${commandLineObject["dir"]} does not Exist!`)
         }
 
 
