@@ -54,7 +54,7 @@ var linuxWindowOptions = {
 
 }
 
-app.setAsDefaultProtocolClient('sonic');
+app.setAsDefaultProtocolClient('arrow');
 
 
 function createwindow(url, arg = '') {
@@ -150,7 +150,7 @@ if (!isDevelopment) {
                     windowsMap.get(window.id).focus() :
                     windowsMap.get(window.id).show()
 
-                windowsMap.get(window.id).webContents.send(`open_in_sonic`, commandLine, workingDirectory)
+                windowsMap.get(window.id).webContents.send(`open_in_arrow`, commandLine, workingDirectory)
 
             } else {
                 url = formatUrl({

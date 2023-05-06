@@ -1,5 +1,4 @@
 {
-    "sonicPort": 3030,
     "terminal.defaultProfile": "powershell",
     "terminal.profiles": {
         "powershell": {

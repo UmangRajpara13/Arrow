@@ -64,7 +64,7 @@ const template = [
                 label: 'Learn More',
                 click: async () => {
                     const { shell } = require('electron')
-                    await shell.openExternal('https://github.com/umangrajpara13/sonic')
+                    await shell.openExternal('https://github.com/umangrajpara13/arrow')
                 }
             }
         ]

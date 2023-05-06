@@ -26,7 +26,7 @@ function LoadSettingsMenu() {
 
 
 
-                // TODO:// quick actions instead, sonic also becomes a command
+                // TODO:// quick actions instead, arrow also becomes a command
                 // line app and switch themes like modification is added for 
                 // other apps as well as operating system
             // }

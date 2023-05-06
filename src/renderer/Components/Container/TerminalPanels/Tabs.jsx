@@ -51,7 +51,7 @@ class Tabs extends React.Component {
                     LANG: `${osLocale.sync().replace(/-/, '_')}.UTF-8`,
                     TERM: 'xterm-256color',
                     COLORTERM: 'truecolor',
-                    TERM_PROGRAM: 'sonic',
+                    TERM_PROGRAM: 'arrow',
                     TERM_PROGRAM_VERSION: globals.version
                 },
                 process.env,
@@ -97,7 +97,7 @@ class Tabs extends React.Component {
                         LANG: `${osLocale.sync().replace(/-/, '_')}.UTF-8`,
                         TERM: 'xterm-256color',
                         COLORTERM: 'truecolor',
-                        TERM_PROGRAM: 'sonic',
+                        TERM_PROGRAM: 'arrow',
                         TERM_PROGRAM_VERSION: globals.version
                     },
                     process.env

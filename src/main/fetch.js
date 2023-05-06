@@ -5,7 +5,7 @@ const isDev = process.env.NODE_ENV != `production`
 // console.log('isDev', isDev)
 
 // TODO
-var url = isDev ? `http://localhost:8080/sonic` : ``
+var url = isDev ? `http://localhost:8080/arrow` : ``
 
 async function CheckForUpdates() {
     // console.log('check for updates')

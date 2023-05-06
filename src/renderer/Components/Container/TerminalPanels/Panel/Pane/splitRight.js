@@ -2,11 +2,10 @@
 import { homedir } from 'os'
 import $ from 'jquery';
 import { tabs } from 'Tabs';
-// import { spawn } from 'node-pty'
 import { Resize } from 'resize'
 import { xTerminal, xtermMap } from 'xTerm'
 import { terminalProfiles } from 'System';
-import { sonicConfig } from "Init";
+import { arrowConfig } from "Init";
 import { AppendTabTitleOutSide } from 'Tabs';
 import shellEnv from 'shell-env';
 import osLocale from 'os-locale';
@@ -112,7 +111,7 @@ async function SplitRight(dir) {
                     LANG: `${osLocale.sync().replace(/-/, '_')}.UTF-8`,
                     TERM: 'xterm-256color',
                     COLORTERM: 'truecolor',
-                    TERM_PROGRAM: 'sonic',
+                    TERM_PROGRAM: 'arrow',
                     TERM_PROGRAM_VERSION: globals.version
                 },
                 process.env)
@@ -130,7 +129,7 @@ async function SplitRight(dir) {
         divTerm.style.flexGrow = widthForNewTerm
 
         Resize()
-        // if (sonicConfig.autocomplete.enable) AutoComplete(ptyProcess.pid)
+        // if (arrowConfig.autocomplete.enable) AutoComplete(ptyProcess.pid)
         AppendTabTitleOutSide(ptyProcess)
         resolve()
     })

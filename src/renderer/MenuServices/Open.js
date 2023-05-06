@@ -9,8 +9,8 @@ import { openDirectory } from 'StatusBar'
 import { globals } from 'App'
 import { settings } from 'Init'
 
-// ipcRenderer.on('code_open_in_sonic', (event, arg) => {
-//     // console.log('code_open_in_sonic',)
+// ipcRenderer.on('code_open_in_arrow', (event, arg) => {
+//     // console.log('code_open_in_arrow',)
 //     openDirectory = existsSync(arg) ? arg : homedir()
 // })
 

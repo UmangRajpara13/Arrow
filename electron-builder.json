@@ -1,13 +1,13 @@
 {
   "buildDependenciesFromSource": false,
   "nodeGypRebuild": false,
-  "appId": "com.thevoyagingstar.sonic",
+  "appId": "com.thevoyagingstar.arrow",
   "afterSign": "dev_scripts/notarize.js",
-  "productName": "Sonic",
+  "productName": "Arrow",
   "protocols": {
-    "name": "sonic",
+    "name": "arrow",
     "schemes": [
-      "sonic"
+      "arrow"
     ]
   },
   "extraResources": [
@@ -74,30 +74,30 @@
       ],
       "CFBundleURLTypes": [
         {
-          "CFBundleURLName": "sonic",
+          "CFBundleURLName": "arrow",
           "CFBundleURLSchemes": [
-            "sonic"
+            "arrow"
           ]
         }
       ],
-      "NSAppleEventsUsageDescription": "An application in Sonic wants to use AppleScript.",
-      "NSCalendarsUsageDescription": "An application in Sonic wants to access Calendar data.",
-      "NSCameraUsageDescription": "An application in Sonic wants to use the Camera.",
-      "NSContactsUsageDescription": "An application in Sonic wants to access your Contacts.",
-      "NSDesktopFolderUsageDescription": "An application in Sonic wants to access the Desktop folder.",
-      "NSDocumentsFolderUsageDescription": "An application in Sonic wants to access the Documents folder.",
-      "NSDownloadsFolderUsageDescription": "An application in Sonic wants to access the Downloads folder.",
-      "NSFileProviderDomainUsageDescription": "An application in Sonic wants to access files managed by a file provider.",
-      "NSFileProviderPresenceUsageDescription": "An application in Sonic wants to be informed when other apps access files that it manages.",
-      "NSLocationUsageDescription": "An application in Sonic wants to access your location information.",
-      "NSMicrophoneUsageDescription": "An application in Sonic wants to use your microphone.",
-      "NSMotionUsageDescription": "An application in Sonic wants to use the device’s accelerometer.",
-      "NSNetworkVolumesUsageDescription": "An application in Sonic wants to access files on a network volume.",
-      "NSPhotoLibraryUsageDescription": "An application in Sonic wants to access the photo library.",
-      "NSRemindersUsageDescription": "An application in Sonic wants to access your reminders.",
-      "NSRemovableVolumesUsageDescription": "An application in Sonic wants to access files on a removable volume.",
-      "NSSpeechRecognitionUsageDescription": "An application in Sonic wants to send user data to Apple’s speech recognition servers.",
-      "NSSystemAdministrationUsageDescription": "The operation being performed by an application in Sonic requires elevated permission."
+      "NSAppleEventsUsageDescription": "An application in Arrow wants to use AppleScript.",
+      "NSCalendarsUsageDescription": "An application in Arrow wants to access Calendar data.",
+      "NSCameraUsageDescription": "An application in Arrow wants to use the Camera.",
+      "NSContactsUsageDescription": "An application in Arrow wants to access your Contacts.",
+      "NSDesktopFolderUsageDescription": "An application in Arrow wants to access the Desktop folder.",
+      "NSDocumentsFolderUsageDescription": "An application in Arrow wants to access the Documents folder.",
+      "NSDownloadsFolderUsageDescription": "An application in Arrow wants to access the Downloads folder.",
+      "NSFileProviderDomainUsageDescription": "An application in Arrow wants to access files managed by a file provider.",
+      "NSFileProviderPresenceUsageDescription": "An application in Arrow wants to be informed when other apps access files that it manages.",
+      "NSLocationUsageDescription": "An application in Arrow wants to access your location information.",
+      "NSMicrophoneUsageDescription": "An application in Arrow wants to use your microphone.",
+      "NSMotionUsageDescription": "An application in Arrow wants to use the device’s accelerometer.",
+      "NSNetworkVolumesUsageDescription": "An application in Arrow wants to access files on a network volume.",
+      "NSPhotoLibraryUsageDescription": "An application in Arrow wants to access the photo library.",
+      "NSRemindersUsageDescription": "An application in Arrow wants to access your reminders.",
+      "NSRemovableVolumesUsageDescription": "An application in Arrow wants to access files on a removable volume.",
+      "NSSpeechRecognitionUsageDescription": "An application in Arrow wants to send user data to Apple’s speech recognition servers.",
+      "NSSystemAdministrationUsageDescription": "The operation being performed by an application in Arrow requires elevated permission."
     }
   }
 }

@@ -22,7 +22,7 @@ function LeftAnchor() {
     });
 
     function update() {
-        shell.openExternal('https://github.com/umangrajpara13/sonic/releases')
+        shell.openExternal('https://github.com/umangrajpara13/arrow/releases')
     }
 
     useEffect(() => {

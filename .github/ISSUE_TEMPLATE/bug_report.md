@@ -1,9 +1,9 @@
 ---
 name: Bug report
-about: Create a report to help us make Sonic better
+about: Create a report to help us make Arrow better
 ---
 
-- Sonic Version:
+- Arrow Version:
 - OS Version:
 
 How to Reproduce:

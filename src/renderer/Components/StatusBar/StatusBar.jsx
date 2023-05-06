@@ -22,8 +22,8 @@ function StatusBar() {
         Compass(); Open();
 
         // this would be triggered if window is present
-        ipcRenderer.on('open_in_sonic', (event, commandLine, workingDirectory) => {
-            console.log('open_in_sonic', commandLine, workingDirectory,)
+        ipcRenderer.on('open_in_arrow', (event, commandLine, workingDirectory) => {
+            console.log('open_in_arrow', commandLine, workingDirectory,)
 
             console.log(yargs(commandLine).parse(), yargs(hideBin(commandLine)).parse());
             if (existsSync(workingDirectory)) {
