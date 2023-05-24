@@ -1,6 +1,6 @@
 ## on Linux
 
-Reimplemented for Arrow Console using the work of code-nautilus by [harry-cpp](https://github.com/harry-cpp/code-nautilus)
+Reimplemented for Arrow Terminal using the work of code-nautilus by [harry-cpp](https://github.com/harry-cpp/code-nautilus)
 
 
 #### Add 'Open in Arrow'
@@ -38,7 +38,7 @@ end tell
  ### Add an icon?
  <br/>
 
-1. In Applications directory right click & then select 'Get Info' on this apple script as well as Arrow Console and drag the Arrow's icon to this apple script's icon
+1. In Applications directory right click & then select 'Get Info' on this apple script as well as Arrow Terminal and drag the Arrow's icon to this apple script's icon
 
 ## on Windows
 arrow automatically adds `Open Arrow here` after installation.
