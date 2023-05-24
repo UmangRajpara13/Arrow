@@ -40,4 +40,4 @@ Learning a new programming language or a just trying out it’s concept - Run si
 | Adaptive Console Menu | Contents are modified based on current Context, hence you only see whats relevant and important. | 
 |  Bookmarks | Add your favourite directories to bookmarks for Quick Access. | 
 | Color Palletes | Customize every corner of arrow with your preferred color scheme or use default ones' out of box. | 
-| Key Bindings |  for new tab, new window, split pane, switch panes. | 
+
