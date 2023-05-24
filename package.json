@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "kill:port": "kill -9 $(lsof -ti:35729,9081)",
-    "kill:WS:win": "netstat -ano | findstr :3030",
+    "kill:WS:win": "netstat -ano | findstr :3030", 
     "development": "electron-esbuild dev",
     "build": "electron-esbuild build",
     "production": "yarn build && electron-builder",

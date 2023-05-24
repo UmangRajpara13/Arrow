@@ -56,7 +56,7 @@ function App() {
     ipcRenderer.once(
       `user_path`,
       async function (
-        event,
+        event, 
         exePath,
         appName,
         version,
@@ -246,8 +246,6 @@ function App() {
         } else {
             // alert(`Path ${commandLineObject["dir"]} does not Exist!`)
         }
-
-
         if (globals.isDev) {
           ipcRenderer.send("spawn", {
             process:

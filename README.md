@@ -7,7 +7,12 @@
 </p>  
 
 # Arrow Console
-[Demo](https://youtu.be/AGQnln7L_Is) | [Download](https://github.com/thevoyagingstar/arrow/releases)
+
+<p align="center">
+  <a aria-label="Arrow logo" href="https://thevoyagingstar.com">
+    <img src="./assets/screenshot.png">
+  </a>
+</p>  
 </div >
 
 ## Overview
