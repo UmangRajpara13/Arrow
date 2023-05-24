@@ -13,7 +13,7 @@
     "development": "electron-esbuild dev",
     "build": "electron-esbuild build",
     "production": "yarn build && electron-builder",
-    "postproduction": "sudo dpkg -i dist/arrow_0.0.1_amd64.deb"
+    "debianInstall": "sudo dpkg -i dist/arrow_0.0.1_amd64.deb"
   },
   "devDependencies": {
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",

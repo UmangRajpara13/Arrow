@@ -41,3 +41,14 @@ Learning a new programming language or a just trying out it’s concept - Run si
 |  Bookmarks | Add your favourite directories to bookmarks for Quick Access. | 
 | Color Palletes | Customize every corner of arrow with your preferred color scheme or use default ones' out of box. | 
 
+## Installation ##
+
+    git clone git@github.com:UmangRajpara13/arrow.git
+    cd ./arrow
+    yarn
+
+## Build Executable ##
+
+    yarn run production
+
+Platform specific Installable build will be available in dist folder after successfull execution of last command.
