@@ -24,8 +24,6 @@ Bookmark your favourite directories for later use
 
 Execute/Manage your projects in arrow console and leverage your multi monitor setup
 
-Learning a new programming language or a just trying out it’s concept - Run single page programming files from VS Code with custom key bindings
-(with [Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=thevoyagingstar.arrow))
 
 ## Features
 
