@@ -1,7 +1,7 @@
 <div align="center">
 
 <p align="center">
-  <a aria-label="Arrow logo" href="https://thevoyagingstar.com">
+  <a aria-label="Arrow logo">
     <img src="./assets/128x128.png">
   </a>
 </p>  
@@ -9,7 +9,7 @@
 # Arrow Terminal
 
 <p align="center">
-  <a aria-label="Arrow logo" href="https://thevoyagingstar.com">
+  <a aria-label="Arrow logo" href="https://raw.githubusercontent.com/thevoyagingstar/arrow/main/assets/screenshot.png">
     <img src="./assets/screenshot.png">
   </a>
 </p>  
