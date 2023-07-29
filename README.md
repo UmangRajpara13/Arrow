@@ -15,16 +15,6 @@
 </p>  
 </div >
 
-## Overview
-
-Run Custom Commands for url's (eg. copy repo url from Github.com or any other webpage and execute custom commands defined under "terminal.url.actions" in Arrow Consoles' settings.json straight from Context Menu )
-Note: only https webpages are supported
-
-Bookmark your favourite directories for later use
-
-Execute/Manage your projects in arrow console and leverage your multi monitor setup
-
-
 ## Features
 
 | Feature | Description | 
